@@ -23,7 +23,7 @@ export default class Recipes {
     return this.request(`recipes/${recipe}/documents/${document}`)
   }
 
-  static getLines(recipe: RecipeId, collection: CollectionId, filters?: any): Promise<Lines> {
+  static getLines(recipe: RecipeId, collection: CollectionId, filters?: any): Promise<Lines> {
     return this.request(`recipes/${recipe}/collections/${collection}/lines`)
   }
 }
