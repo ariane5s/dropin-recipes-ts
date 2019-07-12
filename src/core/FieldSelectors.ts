@@ -1,6 +1,6 @@
 import { SelectorCondition, SelectorConditionObject } from "./SelectorCondition"
 
-export interface FieldSelector {
+export interface FieldSelectors {
   name: string
   display?: boolean
   selectors?: SelectorCondition[]
@@ -8,4 +8,6 @@ export interface FieldSelector {
   filters?: boolean
 }
 
-export type FieldSelectorObject = { [field: string]: SelectorConditionObject }
+export type FieldsSelectorsObject = {
+  [field: string]: SelectorConditionObject
+}
