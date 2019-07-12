@@ -1,13 +1,19 @@
 {
-  "name": "recipes",
+  "name": "dropin-recipes",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "author": "Nazim Lachter <nazim@blueforest.fr>",
-  "repository": "git@github.com:theblueforest/DROPinRecipesClientTS.git",
+  "repository": "git@github.com:theblueforest/DROPinRecipesTypeScript.git",
   "main": "./lib/index.js",
   "scripts": {
-    "start": "tsc --watch",
-    "build": "tsc"
+    "start": "rm -rf lib && tsc -w -p .",
+    "build": "rm -rf lib && tsc -p .",
+    "test": "echo SKIPPED",
+    "preversion": "./bin/npm-pre-version.sh",
+    "version:major": "npm version major -m 'Major upgrade from ${npm_package_version} to %s'",
+    "version:minor": "npm version minor -m 'Minor upgrade from ${npm_package_version} to %s'",
+    "version:patch": "npm version patch -m 'Patch upgrade from ${npm_package_version} to %s'",
+    "postversion": "git push --follow-tags && echo '=> You can now run `npm publish`'"
   },
   "devDependencies": {
     "typescript": "^3.5.2"
