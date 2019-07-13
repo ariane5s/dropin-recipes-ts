@@ -1,7 +1,4 @@
-import { SelectorCondition } from "./selectors/SelectorCondition";
-export declare type QueryView = {
-    [collection: string]: string[];
-};
+import { SelectorCondition } from "./SelectorCondition";
 export declare type QueryFieldsSelectors = {
     [field: string]: SelectorCondition[];
 };

@@ -1,5 +1,5 @@
 import { Recipe } from "../core/Recipe"
-import { CollectionSelectors } from "../core/CollectionSelectors"
+import { CollectionSelectors } from "../core/CollectionsSelectors"
 import { Name } from "../core"
 
 export type DocumentId = string

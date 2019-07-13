@@ -1,4 +1,4 @@
-import { FieldSelectors, FieldsSelectorsObject } from "./FieldSelectors"
+import { FieldSelectors, FieldsSelectorsObject } from "./FieldsSelectors"
 
 export interface CollectionSelectors {
   name: string

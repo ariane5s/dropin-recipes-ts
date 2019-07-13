@@ -9,7 +9,7 @@ export interface MapDocumentGoogleMapsBounds {
 
 export interface MapDocumentGoogleMapsOptions {
   apiKey: string
-  bounds: MapDocumentGoogleMapsBounds
+  bounds: MapDocumentGoogleMapsBounds & any
   style: any[]
 }
 
