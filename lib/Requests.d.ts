@@ -10,3 +10,4 @@ export declare class Request {
     static getDocument<Output = DocumentOutput>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<LineOutput[]>;
 }
+//# sourceMappingURL=Requests.d.ts.map

@@ -9,3 +9,4 @@ export interface FieldSelectors {
 export declare type FieldsSelectorsObject = {
     [field: string]: SelectorConditionObject;
 };
+//# sourceMappingURL=FieldsSelectors.d.ts.map

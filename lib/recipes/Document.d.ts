@@ -10,3 +10,4 @@ export interface Document<Type = any, Options = any> extends Recipe<Type, Docume
 export declare enum DocumentType {
     GoogleMaps = "GoogleMapsDocument"
 }
+//# sourceMappingURL=Document.d.ts.map

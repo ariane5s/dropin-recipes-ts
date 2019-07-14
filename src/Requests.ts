@@ -8,7 +8,7 @@ export class Request {
   private static VERSION = 1
 
   static enableLocalMode(port: number) {
-    this.URL = `http://localhost:${port}/`
+    this.URL = `http://localhost:${port}`
   }
 
   private static request<Output>(path: string, paramsArray: string[] = []): Promise<Output> {

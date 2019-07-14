@@ -1,4 +1,5 @@
 import { LineOutput } from "./Line"
+import { DocumentType } from "../recipes/Document"
 
 export interface DocumentParams {
   linesOnly?: 1|any

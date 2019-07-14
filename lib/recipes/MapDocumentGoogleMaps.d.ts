@@ -11,3 +11,4 @@ export interface MapDocumentGoogleMapsOptions {
     style: any[];
 }
 export declare type MapDocumentGoogleMaps = Document<DocumentType.GoogleMaps, MapDocumentGoogleMapsOptions>;
+//# sourceMappingURL=MapDocumentGoogleMaps.d.ts.map

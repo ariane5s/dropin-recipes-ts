@@ -6,3 +6,4 @@ export interface CollectionSelectors {
 export declare type CollectionsSelectorsObject = {
     [collection: string]: FieldsSelectorsObject;
 };
+//# sourceMappingURL=CollectionsSelectors.d.ts.map

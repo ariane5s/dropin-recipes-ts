@@ -1,4 +1,5 @@
 import { LineOutput } from "./Line";
+import { DocumentType } from "../recipes/Document";
 export interface DocumentParams {
     linesOnly?: 1 | any;
     filters?: string;
@@ -11,3 +12,4 @@ export interface DocumentOutput<Options = any> {
     options: Options;
     lines: LineOutput[];
 }
+//# sourceMappingURL=Document.d.ts.map

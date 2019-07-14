@@ -3,3 +3,4 @@ export declare enum Languages {
     FRENCH = "fr",
     ENGLISH = "en"
 }
+//# sourceMappingURL=Languages.d.ts.map

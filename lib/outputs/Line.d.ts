@@ -5,3 +5,4 @@ export interface LineOutput<Data = any> {
     collection: CollectionId;
     data: Data;
 }
+//# sourceMappingURL=Line.d.ts.map

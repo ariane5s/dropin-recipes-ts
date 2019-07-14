@@ -4,3 +4,4 @@ export interface Recipe<Type, Id> {
     type: Type;
     id: Id;
 }
+//# sourceMappingURL=Recipe.d.ts.map

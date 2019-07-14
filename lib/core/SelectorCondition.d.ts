@@ -12,3 +12,4 @@ export interface SelectorCondition {
     default?: boolean;
 }
 export declare type SelectorConditionObject = string | string[];
+//# sourceMappingURL=SelectorCondition.d.ts.map
