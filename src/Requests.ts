@@ -30,6 +30,7 @@ export class Request {
     const stringParams = []
     if(typeof params.token !== "undefined") stringParams.push(`t=${params.token}`)
     if(typeof params.filters !== "undefined") stringParams.push(`f=${params.filters}`)
+    if(typeof params.linesOnly !== "undefined") stringParams.push(`linesOnly=${params.linesOnly}`)
     return this.request<Output>(`recipes/${recipe}/documents/${document}`, stringParams)
   }
 
