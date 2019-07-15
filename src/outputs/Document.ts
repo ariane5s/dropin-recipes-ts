@@ -1,16 +1,16 @@
-import { LineOutput } from "./Line"
+import { LineParams, Line } from "./Line"
 import { DocumentType } from "../recipes/Document"
 
-export interface DocumentParams {
+export type DocumentId = string
+
+export interface DocumentParams extends LineParams {
   linesOnly?: 1|any
-  filters?: string
-  f?: string
   token?: string
   t?: string
 }
 
-export interface DocumentOutput<Options = any> {
+export interface Document<Options = any> {
   type: DocumentType
   options: Options
-  lines: LineOutput[]
+  lines: Line[]
 }

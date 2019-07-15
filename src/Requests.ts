@@ -1,7 +1,9 @@
-import { DocumentOutput, DocumentParams } from "./outputs/Document"
+import * as request from "request-promise-native"
+import { Document, DocumentParams } from "./outputs/Document"
 import { RecipeId } from "./core/Recipe"
-import { DocumentId } from "./recipes/Document"
-import { LineOutput } from "./outputs/Line"
+import { DocumentId } from "./outputs/Document"
+import { Line } from "./outputs/Line"
+import { CollectionId } from "./outputs/Collections"
 
 export class Request {
   private static URL = "https://api.dropin.link"
@@ -15,7 +17,7 @@ export class Request {
     return new Promise((resolve, reject) => {
       let stringParams = ""
       if(paramsArray.length !== 0) stringParams = `?${paramsArray.join("&")}`
-      fetch(encodeURI(`${this.URL}/v${this.VERSION}/${path}${stringParams}`))
+      request(encodeURI(`${this.URL}/v${this.VERSION}/${path}${stringParams}`))
         .then(result => result.json()).then(result => {
           if(typeof result.error === "undefined") {
             resolve(result)
@@ -26,7 +28,22 @@ export class Request {
     })
   }
 
-  static getDocument<Output = DocumentOutput>(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Output> {
+  static getLines<LineData = any>(recipe: RecipeId, collection: CollectionId, params: DocumentParams = {}): Promise<Line<LineData>[]> {
+    const stringParams = []
+    if(typeof params.filters !== "undefined") stringParams.push(`f=${params.filters}`)
+    return this.request<Line<LineData>[]>(`recipes/${recipe}/collections/${collection}/lines`, stringParams)
+  }
+
+  static getOneLine<LineData = any>(recipe: RecipeId, collection: CollectionId, params: DocumentParams = {}): Promise<Line<LineData>> {
+    return this.getLines<LineData>(recipe, collection, params).then(lines => {
+      if(lines.length !== 1) {
+        return Promise.reject("More than one line found")
+      }
+      return Promise.resolve(lines[0])
+    })
+  }
+
+  static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Output> {
     const stringParams = []
     if(typeof params.token !== "undefined") stringParams.push(`t=${params.token}`)
     if(typeof params.filters !== "undefined") stringParams.push(`f=${params.filters}`)
@@ -34,9 +51,9 @@ export class Request {
     return this.request<Output>(`recipes/${recipe}/documents/${document}`, stringParams)
   }
 
-  static getDocumentLines(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<LineOutput[]> {
+  static getDocumentLines(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Line[]> {
     params.linesOnly = "1"
-    return this.getDocument<LineOutput[]>(recipe, document, params)
+    return this.getDocument<Line[]>(recipe, document, params)
   }
 
   /*static getLines(recipe: RecipeId, collection: CollectionId) {
