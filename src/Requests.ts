@@ -1,4 +1,4 @@
-import * as request from "request-promise-native"
+import nodeFetch from "node-fetch"
 import { Document, DocumentParams } from "./outputs/Document"
 import { RecipeId } from "./core/Recipe"
 import { DocumentId } from "./outputs/Document"
@@ -13,12 +13,19 @@ export class Request {
     this.URL = `http://localhost:${port}`
   }
 
+  private static fetch(path: string) {
+    if(typeof fetch === "undefined") {
+      return nodeFetch(path).then(result => result.json())
+    }
+    return fetch(path).then(result => result.json())
+  }
+
   private static request<Output>(path: string, paramsArray: string[] = []): Promise<Output> {
     return new Promise((resolve, reject) => {
       let stringParams = ""
       if(paramsArray.length !== 0) stringParams = `?${paramsArray.join("&")}`
-      request(encodeURI(`${this.URL}/v${this.VERSION}/${path}${stringParams}`))
-        .then(result => result.json()).then(result => {
+      return this.fetch(encodeURI(`${this.URL}/v${this.VERSION}/${path}${stringParams}`))
+        .then(result => {
           if(typeof result.error === "undefined") {
             resolve(result)
           } else {

@@ -7,6 +7,7 @@ export declare class Request {
     private static URL;
     private static VERSION;
     static enableLocalMode(port: number): void;
+    private static fetch;
     private static request;
     static getLines<LineData = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<LineData>[]>;
     static getOneLine<LineData = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<LineData>>;
