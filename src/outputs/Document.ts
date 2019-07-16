@@ -4,9 +4,9 @@ import { DocumentType } from "../recipes/Document"
 export type DocumentId = string
 
 export interface DocumentParams extends LineParams {
-  linesOnly?: 1|any
-  token?: string
-  t?: string
+  linesOnly?: "1"|string
+  token?: string // DEPRECATED, BEARER IS USED
+  t?: string // DEPRECATED, BEARER IS USED
 }
 
 export interface Document<Options = any> {

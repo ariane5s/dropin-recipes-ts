@@ -1,3 +1,4 @@
+import { Entry } from "../core/Entry"
 import { RecipeId } from "../core/Recipe"
 import { CollectionId } from "./Collections"
 
@@ -8,10 +9,8 @@ export interface LineParams {
   f?: string
 }
 
-export interface Line<Data = any> {
-  id: LineId
+export interface Line<Data = any> extends Entry<LineId, Data> {
   recipe: RecipeId
   collection: CollectionId
-  data: Data
   slug?: string
 }
