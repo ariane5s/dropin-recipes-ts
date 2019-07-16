@@ -1,5 +1,5 @@
 import nodeFetch from "node-fetch"
-import { Line } from "../outputs/Line"
+import { Line, LineParams } from "../outputs/Line"
 import { User } from "../outputs/User"
 import { Token } from "../outputs/Token"
 import { RecipeId } from "./Recipe"
@@ -20,7 +20,7 @@ interface FetchInit {
 
 type FetchParams = { [name: string]: string }
 
-export class Request {
+export class DROPinAPI {
   private static URL = "https://api.dropin.link"
   private static VERSION = 1
   private static TOKEN: string
@@ -87,26 +87,26 @@ export class Request {
     return this.fetch<{ success: boolean }>(FetchMethod.POST, "forgotten", params)
   }
 
-  static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<{ token: Token }> {
-    return this.fetch<{ token: Token }>(FetchMethod.POST, "forgotten", {
+  static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token> {
+    return this.fetch<Token>(FetchMethod.POST, "forgotten", {
       email: email,
       hash: hash,
       password: password,
     })
   }
 
-  static validateEmail(email: string, hash: string): Promise<{ token: Token }> {
-    return this.fetch<{ token: Token }>(FetchMethod.GET, "validate", {
+  static validateEmail(email: string, hash: string): Promise<Token> {
+    return this.fetch<Token>(FetchMethod.GET, "validate", {
       email: email,
       hash: hash,
     })
   }
 
-  static getLines<Data = any>(recipe: RecipeId, collection: CollectionId, params: DocumentParams = {}): Promise<Line<Data>[]> {
+  static getLines<Data>(recipe: RecipeId, collection: CollectionId, params: LineParams = {}): Promise<Line<Data>[]> {
     return this.fetch<Line<Data>[]>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}/lines`, params as FetchParams)
   }
 
-  static getOneLine<Data = any>(recipe: RecipeId, collection: CollectionId, params: DocumentParams = {}): Promise<Line<Data>> {
+  static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params: LineParams = {}): Promise<Line<Data>> {
     return this.getLines<Data>(recipe, collection, params).then(lines => {
       if(lines.length !== 1) {
         return Promise.reject("More than one line found")

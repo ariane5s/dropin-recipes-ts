@@ -21,12 +21,8 @@ export declare class Request {
     static forgottenPassword(email: string, hash?: string): Promise<{
         success: boolean;
     }>;
-    static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<{
-        token: Token;
-    }>;
-    static validateEmail(email: string, hash: string): Promise<{
-        token: Token;
-    }>;
+    static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token>;
+    static validateEmail(email: string, hash: string): Promise<Token>;
     static getLines<Data = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<Data>[]>;
     static getOneLine<Data = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<Data>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
