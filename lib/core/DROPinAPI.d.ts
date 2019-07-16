@@ -1,10 +1,10 @@
-import { Line } from "../outputs/Line";
+import { Line, LineParams } from "../outputs/Line";
 import { User } from "../outputs/User";
 import { Token } from "../outputs/Token";
 import { RecipeId } from "./Recipe";
 import { CollectionId } from "../outputs/Collections";
 import { DocumentId, Document, DocumentParams } from "../outputs/Document";
-export declare class Request {
+export declare class DROPinAPI {
     private static URL;
     private static VERSION;
     private static TOKEN;
@@ -23,9 +23,9 @@ export declare class Request {
     }>;
     static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token>;
     static validateEmail(email: string, hash: string): Promise<Token>;
-    static getLines<Data = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<Data>[]>;
-    static getOneLine<Data = any>(recipe: RecipeId, collection: CollectionId, params?: DocumentParams): Promise<Line<Data>>;
+    static getLines<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>[]>;
+    static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
 }
-//# sourceMappingURL=Request.d.ts.map
+//# sourceMappingURL=DROPinAPI.d.ts.map
