@@ -11,6 +11,7 @@ export declare class DROPinAPI {
     static enableLocalMode(port: number): void;
     static setToken(token: string): void;
     private static fetch;
+    private static request;
     static register(invitationCode: string, email: string, password: string): Promise<{
         user: User;
     }>;
