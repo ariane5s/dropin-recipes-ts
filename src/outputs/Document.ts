@@ -5,7 +5,6 @@ export type DocumentId = string
 
 export interface DocumentParams extends LineParams {
   linesOnly?: 1 | "1"
-  token?: string // DEPRECATED, BEARER IS USED
   t?: string // DEPRECATED, BEARER IS USED
 }
 

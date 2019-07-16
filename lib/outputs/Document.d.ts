@@ -3,7 +3,6 @@ import { DocumentType } from "../recipes/Document";
 export declare type DocumentId = string;
 export interface DocumentParams extends LineParams {
     linesOnly?: 1 | "1";
-    token?: string;
     t?: string;
 }
 export interface Document<Options = any> {

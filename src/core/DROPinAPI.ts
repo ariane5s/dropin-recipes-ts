@@ -33,7 +33,7 @@ export class DROPinAPI {
     this.TOKEN = token
   }
 
-  private static fetch<Output>(method: FetchMethod, path: string, params: FetchParams): Promise<Output> {
+  private static fetch<Output>(method: FetchMethod, path: string, params: FetchParams = {}): Promise<Output> {
     let init: FetchInit = {  method, headers: { "content-type": "application/json" } }
 
     // Token
@@ -45,7 +45,7 @@ export class DROPinAPI {
     let stringParams = ""
     const keys = Object.keys(params)
     if(keys.length !== 0) {
-      stringParams = `?${keys.map((k: string) => k + "=" + params[k]).join('&')}`
+      stringParams = `?${keys.filter(k => typeof params[k] !== "undefined").map(k => k + "=" + params[k]).join("&")}`
     }
 
     // URL
@@ -124,7 +124,7 @@ export class DROPinAPI {
 
   static getDocumentLines(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Line[]> {
     params.linesOnly = "1"
-    return this.getDocument<Line[]>(recipe, document, params)
+    return this.fetch<Line[]>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
   }
 
 }
