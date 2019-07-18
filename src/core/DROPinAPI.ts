@@ -16,6 +16,7 @@ enum FetchMethod {
 interface FetchInit {
   method: FetchMethod
   headers: { [name: string]: string }
+  body?: any
 }
 
 type FetchParams = { [name: string]: string }
@@ -40,7 +41,7 @@ export class DROPinAPI {
     return fetch(url, init)
   }
 
-  private static request<Output>(method: FetchMethod, path: string, params: FetchParams = {}): Promise<Output> {
+  private static request<Output>(method: FetchMethod, path: string, params: FetchParams = {}, body?: any): Promise<Output> {
     let init: FetchInit = {  method, headers: { "content-type": "application/json" } }
 
     // Token
@@ -48,7 +49,12 @@ export class DROPinAPI {
       init.headers["Authorization"] = "Bearer " + this.TOKEN
     }
 
-    // Parameters
+    // Body
+    if(typeof body !== "undefined") {
+      init.body = JSON.stringify(body)
+    }
+
+    // String parameters
     let stringParams = ""
     const keys = Object.keys(params)
     if(keys.length !== 0) {
@@ -73,7 +79,7 @@ export class DROPinAPI {
   }
 
   static register(invitationCode: string, email: string, password: string): Promise<{ user: User }> {
-    return this.request<{ user: User }>(FetchMethod.PUT, "users", {
+    return this.request<{ user: User }>(FetchMethod.PUT, "users", {}, {
       invitation_code: invitationCode,
       email: email,
       password: password,
@@ -81,7 +87,7 @@ export class DROPinAPI {
   }
 
   static login(email: string, password: string): Promise<{ user: User, token: Token }> {
-    return this.request<{ user: User, token: Token }>(FetchMethod.POST, "auth", {
+    return this.request<{ user: User, token: Token }>(FetchMethod.POST, "auth", {}, {
       email: email,
       password: password,
     })
@@ -90,11 +96,11 @@ export class DROPinAPI {
   static forgottenPassword(email: string, hash?: string): Promise<{ success: boolean }> {
     let params: FetchParams = { email }
     if(typeof hash !== "undefined") params.hash = hash
-    return this.request<{ success: boolean }>(FetchMethod.POST, "forgotten", params)
+    return this.request<{ success: boolean }>(FetchMethod.POST, "forgotten", {}, params)
   }
 
   static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token> {
-    return this.request<Token>(FetchMethod.POST, "forgotten", {
+    return this.request<Token>(FetchMethod.POST, "forgotten", {}, {
       email: email,
       hash: hash,
       password: password,
