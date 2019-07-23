@@ -72,7 +72,7 @@ export class DROPinAPI {
           if(typeof result.error === "undefined") {
             resolve(result)
           } else {
-            reject(result)
+            reject(result.error)
           }
         }, reject)
     })
