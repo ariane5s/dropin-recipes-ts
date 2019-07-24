@@ -6,8 +6,10 @@ export interface LineParams {
     filters?: string;
     f?: string;
 }
-export interface Line<Data = any> extends Entry<LineId, Data> {
+export interface Line<Data = any> extends Entry<LineId> {
     recipe: RecipeId;
     collection: CollectionId;
+    data: Data;
+    version: number;
 }
 //# sourceMappingURL=Line.d.ts.map

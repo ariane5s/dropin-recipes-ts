@@ -1,7 +1,6 @@
-export interface Entry<Id, Data> {
+export interface Entry<Id> {
     id: Id;
-    data: Data;
     createdAt: Date;
-    updatedAd: Date;
+    updatedAt: Date;
 }
 //# sourceMappingURL=Entry.d.ts.map

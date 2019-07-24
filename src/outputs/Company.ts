@@ -2,8 +2,6 @@ import { Entry } from "../core/Entry"
 
 export type CompanyId = string
 
-export interface CompanyData {
+export interface Company extends Entry<CompanyId> {
   name: string
 }
-
-export type Company = Entry<CompanyId, CompanyData>

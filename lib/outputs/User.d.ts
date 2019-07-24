@@ -8,9 +8,8 @@ export interface UserEmail {
     address: string;
     verified: boolean;
 }
-export interface UserData {
+export interface User extends Entry<UserId> {
     name: string | UserName;
     emails: UserEmail[];
 }
-export declare type User = Entry<UserId, UserData>;
 //# sourceMappingURL=User.d.ts.map
