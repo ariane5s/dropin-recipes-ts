@@ -9,6 +9,5 @@ export interface LineParams {
 export interface Line<Data = any> extends Entry<LineId, Data> {
     recipe: RecipeId;
     collection: CollectionId;
-    slug?: string;
 }
 //# sourceMappingURL=Line.d.ts.map

@@ -12,5 +12,4 @@ export interface LineParams {
 export interface Line<Data = any> extends Entry<LineId, Data> {
   recipe: RecipeId
   collection: CollectionId
-  slug?: string
 }
