@@ -6,7 +6,7 @@ export interface LineParams {
     filters?: string;
     f?: string;
 }
-export interface Line<Data = any> extends Output<LineId> {
+export interface Line<Data = any> extends Output<LineId, "Line"> {
     recipe: RecipeId;
     collection: CollectionId;
     data: Data;

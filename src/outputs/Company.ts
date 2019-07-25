@@ -6,4 +6,4 @@ export interface CompanyData {
   name: string
 }
 
-export type Company = Output<CompanyId> & CompanyData
+export type Company = Output<CompanyId, "Company"> & CompanyData

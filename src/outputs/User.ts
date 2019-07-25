@@ -12,7 +12,7 @@ export interface UserEmail {
   verified: boolean
 }
 
-export interface User extends Output<UserId> {
+export interface User extends Output<UserId, "User"> {
   name: string | UserName
   emails: UserEmail[]
 }

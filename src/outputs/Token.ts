@@ -3,8 +3,10 @@ import { UserId } from "./User"
 
 export type TokenId = string
 
-export interface Token extends Output<TokenId> {
+export interface TokenData {
   user: UserId
   jwt: string
   expiresAt?: Date
 }
+
+export type Token = Output<TokenId, "Token"> & TokenData
