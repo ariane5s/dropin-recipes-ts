@@ -13,4 +13,4 @@ export interface GoogleMapsDocumentOptions {
   style: any[]
 }
 
-export type GoogleMapsDocument = DocumentRecipe<GoogleMapsDocumentOptions>
+export type GoogleMapsDocument = DocumentRecipe<"GoogleMapsDocument", GoogleMapsDocumentOptions>
