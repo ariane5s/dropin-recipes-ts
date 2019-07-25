@@ -1,4 +1,4 @@
-import { Entry } from "../core/Entry"
+import { Output } from "../core/Output"
 
 export type UserId = string
 
@@ -12,9 +12,7 @@ export interface UserEmail {
   verified: boolean
 }
 
-export interface UserData {
+export interface User extends Output<UserId> {
   name: string | UserName
   emails: UserEmail[]
 }
-
-export type User = Entry<UserId, UserData>

@@ -1,4 +1,4 @@
-import { Entry } from "../core/Entry"
+import { Output } from "../core/Output"
 
 export type CompanyId = string
 
@@ -6,4 +6,4 @@ export interface CompanyData {
   name: string
 }
 
-export type Company = Entry<CompanyId, CompanyData>
+export type Company = Output<CompanyId> & CompanyData

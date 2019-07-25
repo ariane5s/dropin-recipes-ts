@@ -1,4 +1,4 @@
-import { Entry } from "../core/Entry";
+import { Output } from "../core/Output";
 export declare type UserId = string;
 export interface UserName {
     firstname: string;
@@ -8,9 +8,8 @@ export interface UserEmail {
     address: string;
     verified: boolean;
 }
-export interface UserData {
+export interface User extends Output<UserId> {
     name: string | UserName;
     emails: UserEmail[];
 }
-export declare type User = Entry<UserId, UserData>;
 //# sourceMappingURL=User.d.ts.map

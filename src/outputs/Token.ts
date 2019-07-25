@@ -1,12 +1,10 @@
-import { Entry } from "../core/Entry"
+import { Output } from "../core/Output"
 import { UserId } from "./User"
 
 export type TokenId = string
 
-export interface TokenData {
+export interface Token extends Output<TokenId> {
   user: UserId
   jwt: string
   expiresAt?: Date
 }
-
-export type Token = Entry<TokenId, TokenData>
