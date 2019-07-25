@@ -1,4 +1,4 @@
-import { Entry } from "../core/Entry"
+import { Output } from "../core/Output"
 import { RecipeId } from "../core/Recipe"
 import { CollectionId } from "./Collections"
 
@@ -9,7 +9,7 @@ export interface LineParams {
   f?: string
 }
 
-export interface Line<Data = any> extends Entry<LineId> {
+export interface Line<Data = any> extends Output<LineId> {
   recipe: RecipeId
   collection: CollectionId
   data: Data

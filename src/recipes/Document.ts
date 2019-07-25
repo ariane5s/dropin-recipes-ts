@@ -3,12 +3,12 @@ import { DocumentId } from "../outputs/Document"
 import { CollectionSelectors } from "../core/CollectionsSelectors"
 import { Name } from "../core/Name"
 
-export interface DocumentRecipe<Type = any, Options = any> extends Recipe<Type, DocumentId> {
+export enum DocumentType {
+  GoogleMaps = "GoogleMapsDocument"
+}
+
+export interface DocumentRecipe<Options = any> extends Recipe<DocumentType, DocumentId> {
   options: Options
   lines: CollectionSelectors[]
   name?: Name
-}
-
-export enum DocumentType {
-  GoogleMaps = "GoogleMapsDocument"
 }

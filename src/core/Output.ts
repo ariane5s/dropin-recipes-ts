@@ -1,5 +1,5 @@
 
-export interface Entry<Id> {
+export interface Output<Id> {
   id: Id
   createdAt: Date
   updatedAt: Date
