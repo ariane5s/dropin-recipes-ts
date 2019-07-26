@@ -1,5 +1,5 @@
 export declare type RecipeId = string;
-export interface Recipe<Type, Id> {
+export interface RecipeData<Type, Id> {
     apiVersion: number;
     type: Type;
     id: Id;

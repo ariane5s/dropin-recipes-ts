@@ -1,7 +1,9 @@
-export interface Output<Id, Type> {
+export interface Output<Id> {
     id: Id;
-    type: Type;
     createdAt: Date;
     updatedAt: Date;
+}
+export interface RecipeOutput<Type, Id> extends Output<Id> {
+    type: Type;
 }
 //# sourceMappingURL=Output.d.ts.map

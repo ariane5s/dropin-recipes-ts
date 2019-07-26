@@ -4,4 +4,4 @@ export type BooleanFieldOptions = FieldDefaultOption<boolean> & {
   done?: boolean
 }
 
-export type BooleanField = Field<BooleanFieldOptions>
+export type BooleanField = Field<"boolean", BooleanFieldOptions>

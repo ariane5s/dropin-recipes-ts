@@ -4,4 +4,4 @@ export type TextFieldOptions = FieldLengthOptions & {
   lines?: number
 }
 
-export type TextField = Field<TextFieldOptions>
+export type TextField = Field<"text", TextFieldOptions>

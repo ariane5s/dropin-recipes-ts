@@ -1,9 +1,9 @@
 import { Line, LineParams } from "../outputs/Line";
 import { User } from "../outputs/User";
 import { Token } from "../outputs/Token";
-import { RecipeId } from "./Recipe";
 import { CollectionId } from "../outputs/Collections";
 import { DocumentId, Document, DocumentParams } from "../outputs/Document";
+import { RecipeId } from "../recipes/Recipe";
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;

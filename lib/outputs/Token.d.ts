@@ -6,5 +6,5 @@ export interface TokenData {
     jwt: string;
     expiresAt?: Date;
 }
-export declare type Token = Output<TokenId, "Token"> & TokenData;
+export declare type Token = Output<TokenId> & TokenData;
 //# sourceMappingURL=Token.d.ts.map

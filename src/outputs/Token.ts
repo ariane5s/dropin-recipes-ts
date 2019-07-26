@@ -9,4 +9,4 @@ export interface TokenData {
   expiresAt?: Date
 }
 
-export type Token = Output<TokenId, "Token"> & TokenData
+export type Token = Output<TokenId> & TokenData

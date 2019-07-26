@@ -12,4 +12,4 @@ export type DurationFieldOptions = {
   seconds?: boolean
 }
 
-export type DurationField = Field<DurationFieldOptions>
+export type DurationField = Field<"duration", DurationFieldOptions>

@@ -4,4 +4,4 @@ export type ListFieldOptions = {
   todo?: boolean
 }
 
-export type ListField = Field<ListFieldOptions>
+export type ListField = Field<"list", ListFieldOptions>

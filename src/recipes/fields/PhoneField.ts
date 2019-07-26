@@ -4,4 +4,4 @@ export type PhoneFieldOptions = {
   prefix?: number
 }
 
-export type PhoneField = Field<PhoneFieldOptions>
+export type PhoneField = Field<"phone", PhoneFieldOptions>

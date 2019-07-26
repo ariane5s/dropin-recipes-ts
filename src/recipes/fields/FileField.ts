@@ -6,4 +6,4 @@ export type FileFieldOptions = {
   maxSize?: number
 }
 
-export type FileField = Field<FileFieldOptions>
+export type FileField = Field<"file", FileFieldOptions>

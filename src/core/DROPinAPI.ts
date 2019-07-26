@@ -2,9 +2,9 @@ import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
 import { Line, LineParams } from "../outputs/Line"
 import { User } from "../outputs/User"
 import { Token } from "../outputs/Token"
-import { RecipeId } from "./Recipe"
 import { CollectionId } from "../outputs/Collections"
 import { DocumentId, Document, DocumentParams } from "../outputs/Document"
+import { RecipeId } from "../recipes/Recipe"
 
 enum FetchMethod {
   PUT = "PUT",

@@ -4,4 +4,4 @@ export type CurrencyFieldOptions = FieldLengthOptions & {
   symbol: string
 }
 
-export type CurrencyField = Field<CurrencyFieldOptions>
+export type CurrencyField = Field<"currency", CurrencyFieldOptions>

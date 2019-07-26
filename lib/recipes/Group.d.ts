@@ -1,5 +1,5 @@
 import { Name } from "../core";
-import { Recipe } from "../core/Recipe";
+import { RecipeFormat } from "../core/RecipeFormat";
 import { GroupId } from "../outputs/Group";
 export interface GroupCompaniesPermissions {
     billing?: boolean;
@@ -33,5 +33,5 @@ export interface GroupData {
     name: Name;
     permissions: GroupPermissions;
 }
-export declare type GroupRecipe = Recipe<"Group", GroupId> & GroupData;
+export declare type GroupRecipe = RecipeFormat<"Group", GroupId> & GroupData;
 //# sourceMappingURL=Group.d.ts.map

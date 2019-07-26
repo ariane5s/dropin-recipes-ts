@@ -1,8 +1,8 @@
 import { Name } from "../core/Name"
 
-export interface Field<Options = {}> {
+export interface Field<Type = string, Options = {}> {
   name: Name
-  type: string
+  type: Type
   options?: Options
   min?: number
   max?: number
@@ -12,8 +12,8 @@ export interface Field<Options = {}> {
 
 export type FieldType = "boolean" | "collection" | "color"
   | "currency" | "date" | "duration" | "email" | "file"
-  | "length" | "list" | "name" | "notification" | "number"
-  | "occupation" | "percentage" | "phone" | "pipeline" | "text" | "type"
+  | "length" | "list" | "name" | "number" | "occupation"
+  | "percentage" | "phone" | "pipeline" | "text" | "type"
 
 export interface FieldLengthOptions {
   minLength?: number

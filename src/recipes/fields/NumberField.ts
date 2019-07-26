@@ -4,4 +4,4 @@ export type NumberFieldOptions = FieldLengthOptions & {
   decimals?: number
 }
 
-export type NumberField = Field<NumberFieldOptions>
+export type NumberField = Field<"number", NumberFieldOptions>

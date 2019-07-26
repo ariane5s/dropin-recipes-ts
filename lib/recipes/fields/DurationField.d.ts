@@ -10,5 +10,5 @@ export declare type DurationFieldOptions = {
     minutes?: boolean;
     seconds?: boolean;
 };
-export declare type DurationField = Field<DurationFieldOptions>;
+export declare type DurationField = Field<"duration", DurationFieldOptions>;
 //# sourceMappingURL=DurationField.d.ts.map

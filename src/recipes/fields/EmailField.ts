@@ -4,4 +4,4 @@ export type EmailFieldOptions = {
   domains?: string[]
 }
 
-export type EmailField = Field<EmailFieldOptions>
+export type EmailField = Field<"email", EmailFieldOptions>

@@ -4,4 +4,4 @@ export type LengthFieldOptions = FieldLengthOptions & {
   unit: string
 }
 
-export type LengthField = Field<LengthFieldOptions>
+export type LengthField = Field<"length", LengthFieldOptions>

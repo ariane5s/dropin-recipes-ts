@@ -11,4 +11,4 @@ export type DateFieldOptions = {
   seconds?: boolean
 }
 
-export type DateField = Field<DateFieldOptions>
+export type DateField = Field<"date", DateFieldOptions>

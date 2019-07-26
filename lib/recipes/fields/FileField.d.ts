@@ -4,5 +4,5 @@ export declare type FileFieldOptions = {
     minSize?: number;
     maxSize?: number;
 };
-export declare type FileField = Field<FileFieldOptions>;
+export declare type FileField = Field<"file", FileFieldOptions>;
 //# sourceMappingURL=FileField.d.ts.map

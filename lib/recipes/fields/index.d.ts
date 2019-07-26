@@ -9,7 +9,6 @@ export * from "./FileField";
 export * from "./LengthField";
 export * from "./ListField";
 export * from "./NameField";
-export * from "./NotificationField";
 export * from "./NumberField";
 export * from "./OccupationField";
 export * from "./PercentageField";

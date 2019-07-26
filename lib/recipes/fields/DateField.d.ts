@@ -9,5 +9,5 @@ export declare type DateFieldOptions = {
     minutes?: boolean;
     seconds?: boolean;
 };
-export declare type DateField = Field<DateFieldOptions>;
+export declare type DateField = Field<"date", DateFieldOptions>;
 //# sourceMappingURL=DateField.d.ts.map

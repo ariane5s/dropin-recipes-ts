@@ -1,1 +1,1 @@
-{"version":3,"file":"PercentageField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/PercentageField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,MAAM,UAAU,CAAA;AAEpD,oBAAY,sBAAsB,GAAG,kBAAkB,CAAA;AAEvD,oBAAY,eAAe,GAAG,KAAK,CAAC,sBAAsB,CAAC,CAAA"}
+{"version":3,"file":"PercentageField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/PercentageField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,MAAM,UAAU,CAAA;AAEpD,oBAAY,sBAAsB,GAAG,kBAAkB,CAAA;AAEvD,oBAAY,eAAe,GAAG,KAAK,CAAC,YAAY,EAAE,sBAAsB,CAAC,CAAA"}
