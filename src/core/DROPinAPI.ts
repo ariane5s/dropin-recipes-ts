@@ -1,9 +1,10 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
 import { Line, LineParams } from "../outputs/Line"
-import { User } from "../outputs/User"
+import { User, UserId } from "../outputs/User"
 import { Token } from "../outputs/Token"
 import { CollectionId } from "../outputs/Collections"
 import { DocumentId, Document, DocumentParams } from "../outputs/Document"
+import { Notification, NotificationId } from "../outputs/Notification"
 import { RecipeId } from "../recipes/Recipe"
 
 enum FetchMethod {
@@ -139,4 +140,13 @@ export class DROPinAPI {
     return this.request<Line[]>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
   }
 
+  static getNotifications(user: UserId) {
+    return this.request<Notification[]>(FetchMethod.GET, `users/${user}/notifs`)
+  }
+
+  static setNotificationAsRead(user: UserId, notification: NotificationId, isRead: boolean) {
+    return this.request<Notification[]>(FetchMethod.POST, `users/${user}/notifs/${notification}`, {}, {
+      is_read: isRead
+    })
+  }
 }
