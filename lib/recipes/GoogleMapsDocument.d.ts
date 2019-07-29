@@ -5,10 +5,17 @@ export interface GoogleMapsDocumentBounds {
     south: number;
     north: number;
 }
+export interface GoogleMapsDocumentOptionsStyle {
+    elementType?: any;
+    stylers: {
+        [property: string]: any;
+    }[];
+    featureType?: any;
+}
 export interface GoogleMapsDocumentOptions {
     apiKey: string;
     bounds: GoogleMapsDocumentBounds & any;
-    style: any[];
+    style: GoogleMapsDocumentOptionsStyle[];
 }
 export declare type GoogleMapsDocument = DocumentRecipe<"GoogleMapsDocument", GoogleMapsDocumentOptions>;
 //# sourceMappingURL=GoogleMapsDocument.d.ts.map
