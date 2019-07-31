@@ -3,6 +3,7 @@ import { Line, LineParams } from "../outputs/Line"
 import { User } from "../outputs/User"
 import { Token } from "../outputs/Token"
 import { CollectionId } from "../outputs/Collections"
+import { Company } from "../outputs/Company"
 import { DocumentId, Document, DocumentParams } from "../outputs/Document"
 import { RecipeId } from "../recipes/Recipe"
 
@@ -139,4 +140,7 @@ export class DROPinAPI {
     return this.request<Line[]>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
   }
 
+  static getCompanies() {
+    return this.request<Company[]>(FetchMethod.GET, `companies`)
+  }
 }
