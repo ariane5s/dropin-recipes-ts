@@ -2,7 +2,6 @@ import { Line, LineParams } from "../outputs/Line";
 import { User } from "../outputs/User";
 import { Token } from "../outputs/Token";
 import { CollectionId } from "../outputs/Collections";
-import { Company } from "../outputs/Company";
 import { DocumentId, Document, DocumentParams } from "../outputs/Document";
 import { RecipeId } from "../recipes/Recipe";
 export declare class DROPinAPI {
@@ -29,6 +28,5 @@ export declare class DROPinAPI {
     static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
-    static getCompanies(): Promise<Company[]>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map
