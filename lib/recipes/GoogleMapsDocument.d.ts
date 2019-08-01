@@ -17,5 +17,7 @@ export interface GoogleMapsDocumentOptions {
     bounds: GoogleMapsDocumentBounds & any;
     style: GoogleMapsDocumentOptionsStyle[];
 }
-export declare type GoogleMapsDocument = DocumentRecipe<DocumentType.GoogleMaps, GoogleMapsDocumentOptions>;
+export interface GoogleMapsDocument extends DocumentRecipe<GoogleMapsDocumentOptions> {
+    type: DocumentType.GoogleMaps;
+}
 //# sourceMappingURL=GoogleMapsDocument.d.ts.map

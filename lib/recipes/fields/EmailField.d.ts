@@ -1,6 +1,8 @@
-import { Field } from "../Field";
+import { Field, FieldType } from "../Field";
 export declare type EmailFieldOptions = {
     domains?: string[];
 };
-export declare type EmailField = Field<"email", EmailFieldOptions>;
+export interface EmailField extends Field<EmailFieldOptions> {
+    type: FieldType.EMAIL;
+}
 //# sourceMappingURL=EmailField.d.ts.map

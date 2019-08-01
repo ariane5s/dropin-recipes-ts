@@ -7,7 +7,8 @@ export declare type RecipeRecipeVariables = {
     [name: string]: string | number;
 };
 export declare type RecipeRecipeSection = SectionId | ChildrenSection;
-export interface RecipeRecipe extends Recipe<RecipeId, RecipeType.RECIPE> {
+export interface RecipeRecipe extends Recipe<RecipeId> {
+    type: RecipeType.RECIPE;
     company: CompanyId;
     name?: Name;
     authors?: string[];

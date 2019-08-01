@@ -1,1 +1,1 @@
-{"version":3,"file":"ColorField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/ColorField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,UAAU,CAAA;AAEhC,oBAAY,UAAU,GAAG,KAAK,CAAC,OAAO,CAAC,CAAA"}
+{"version":3,"file":"ColorField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/ColorField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE3C,MAAM,WAAW,UAAW,SAAQ,KAAK;IACvC,IAAI,EAAE,SAAS,CAAC,KAAK,CAAA;CACtB"}

@@ -1,8 +1,10 @@
-import { Field } from "../Field";
+import { Field, FieldType } from "../Field";
 export declare type FileFieldOptions = {
     formats?: string[];
     minSize?: number;
     maxSize?: number;
 };
-export declare type FileField = Field<"file", FileFieldOptions>;
+export interface FileField extends Field<FileFieldOptions> {
+    type: FieldType.FILE;
+}
 //# sourceMappingURL=FileField.d.ts.map

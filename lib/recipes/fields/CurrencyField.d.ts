@@ -1,6 +1,8 @@
-import { Field, FieldLengthOptions } from "../Field";
+import { Field, FieldLengthOptions, FieldType } from "../Field";
 export declare type CurrencyFieldOptions = FieldLengthOptions & {
     symbol: string;
 };
-export declare type CurrencyField = Field<"currency", CurrencyFieldOptions>;
+export interface CurrencyField extends Field<CurrencyFieldOptions> {
+    type: FieldType.CURRENCY;
+}
 //# sourceMappingURL=CurrencyField.d.ts.map

@@ -1,4 +1,6 @@
-import { Field, FieldIdOption } from "../Field";
+import { Field, FieldIdOption, FieldType } from "../Field";
 export declare type TypeFieldOptions = FieldIdOption;
-export declare type TypeField = Field<"type", TypeFieldOptions>;
+export interface TypeField extends Field<TypeFieldOptions> {
+    type: FieldType.TYPE;
+}
 //# sourceMappingURL=TypeField.d.ts.map

@@ -1,6 +1,8 @@
-import { Field, FieldLengthOptions } from "../Field";
+import { Field, FieldLengthOptions, FieldType } from "../Field";
 export declare type NameFieldOptions = FieldLengthOptions & {
     fullName?: boolean;
 };
-export declare type NameField = Field<"name", NameFieldOptions>;
+export interface NameField extends Field<NameFieldOptions> {
+    type: FieldType.NAME;
+}
 //# sourceMappingURL=NameField.d.ts.map

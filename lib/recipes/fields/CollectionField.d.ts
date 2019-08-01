@@ -1,4 +1,6 @@
-import { FieldDefaultOption, FieldIdOption, Field } from "../Field";
+import { FieldDefaultOption, FieldIdOption, Field, FieldType } from "../Field";
 export declare type CollectionFieldOptions = FieldDefaultOption<boolean> & FieldIdOption;
-export declare type CollectionField = Field<"collection", CollectionFieldOptions>;
+export interface CollectionField extends Field<CollectionFieldOptions> {
+    type: FieldType.COLLECTION;
+}
 //# sourceMappingURL=CollectionField.d.ts.map

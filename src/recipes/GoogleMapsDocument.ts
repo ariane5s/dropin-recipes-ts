@@ -19,4 +19,6 @@ export interface GoogleMapsDocumentOptions {
   style: GoogleMapsDocumentOptionsStyle[]
 }
 
-export type GoogleMapsDocument = DocumentRecipe<DocumentType.GoogleMaps, GoogleMapsDocumentOptions>
+export interface GoogleMapsDocument extends DocumentRecipe<GoogleMapsDocumentOptions> {
+  type: DocumentType.GoogleMaps,
+}

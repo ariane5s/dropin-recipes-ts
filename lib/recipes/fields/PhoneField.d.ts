@@ -1,6 +1,8 @@
-import { Field } from "../Field";
+import { Field, FieldType } from "../Field";
 export declare type PhoneFieldOptions = {
     prefix?: number;
 };
-export declare type PhoneField = Field<"phone", PhoneFieldOptions>;
+export interface PhoneField extends Field<PhoneFieldOptions> {
+    type: FieldType.PHONE;
+}
 //# sourceMappingURL=PhoneField.d.ts.map

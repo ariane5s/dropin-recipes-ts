@@ -1,4 +1,6 @@
-import { Field, FieldLengthOptions } from "../Field";
+import { Field, FieldLengthOptions, FieldType } from "../Field";
 export declare type PercentageFieldOptions = FieldLengthOptions;
-export declare type PercentageField = Field<"percentage", PercentageFieldOptions>;
+export interface PercentageField extends Field<PercentageFieldOptions> {
+    type: FieldType.PERCENTAGE;
+}
 //# sourceMappingURL=PercentageField.d.ts.map

@@ -1,4 +1,4 @@
-import { Field } from "../Field";
+import { Field, FieldType } from "../Field";
 export declare type DateFieldOptions = {
     minDate?: Date;
     maxDate?: Date;
@@ -9,5 +9,7 @@ export declare type DateFieldOptions = {
     minutes?: boolean;
     seconds?: boolean;
 };
-export declare type DateField = Field<"date", DateFieldOptions>;
+export interface DateField extends Field<DateFieldOptions> {
+    type: FieldType.DATE;
+}
 //# sourceMappingURL=DateField.d.ts.map

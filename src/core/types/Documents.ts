@@ -7,7 +7,7 @@ export enum DocumentType {
   GoogleMaps = "GoogleMapsDocument"
 }
 
-export interface DocumentRecipe<Type = DocumentType, Options = any> extends Recipe<DocumentId, Type> {
+export interface DocumentRecipe<Options = any> extends Recipe<DocumentId, DocumentType> {
   options: Options
   lines: CollectionSelector[]
   name?: Name

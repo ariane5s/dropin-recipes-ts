@@ -1,6 +1,8 @@
-import { Field, FieldDefaultOption } from "../Field";
+import { Field, FieldDefaultOption, FieldType } from "../Field";
 export declare type BooleanFieldOptions = FieldDefaultOption<boolean> & {
     done?: boolean;
 };
-export declare type BooleanField = Field<"boolean", BooleanFieldOptions>;
+export interface BooleanField extends Field<BooleanFieldOptions> {
+    type: FieldType.BOOLEAN;
+}
 //# sourceMappingURL=BooleanField.d.ts.map

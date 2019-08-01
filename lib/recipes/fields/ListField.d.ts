@@ -1,6 +1,8 @@
-import { Field } from "../Field";
+import { Field, FieldType } from "../Field";
 export declare type ListFieldOptions = {
     todo?: boolean;
 };
-export declare type ListField = Field<"list", ListFieldOptions>;
+export interface ListField extends Field<ListFieldOptions> {
+    type: FieldType.LIST;
+}
 //# sourceMappingURL=ListField.d.ts.map

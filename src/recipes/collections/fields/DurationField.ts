@@ -1,4 +1,4 @@
-import { Field } from "../Field"
+import { Field, FieldType } from "../Field"
 
 export type DurationFieldOptions = {
   minDuration?: Date
@@ -12,4 +12,6 @@ export type DurationFieldOptions = {
   seconds?: boolean
 }
 
-export type DurationField = Field<"duration", DurationFieldOptions>
+export interface DurationField extends Field<DurationFieldOptions> {
+  type: FieldType.DURATION
+}

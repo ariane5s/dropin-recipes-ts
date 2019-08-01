@@ -1,4 +1,6 @@
-import { Field, FieldLengthOptions } from "../Field";
+import { Field, FieldLengthOptions, FieldType } from "../Field";
 export declare type OccupationFieldOptions = FieldLengthOptions;
-export declare type OccupationField = Field<"occupation", OccupationFieldOptions>;
+export interface OccupationField extends Field<OccupationFieldOptions> {
+    type: FieldType.OCCUPATION;
+}
 //# sourceMappingURL=OccupationField.d.ts.map

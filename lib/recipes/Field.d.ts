@@ -1,14 +1,34 @@
 import { Name } from "../core/i18n/Name";
-export interface Field<Type = string, Options = {}> {
+export declare enum FieldType {
+    BOOLEAN = "boolean",
+    COLLECTION = "collection",
+    COLOR = "color",
+    CURRENCY = "currency",
+    DATE = "date",
+    DURATION = "duration",
+    EMAIL = "email",
+    FILE = "file",
+    LENGTH = "length",
+    LIST = "list",
+    NAME = "name",
+    NUMBER = "number",
+    OCCUPATION = "occupation",
+    PERCENTAGE = "percentage",
+    PHONE = "phone",
+    PIPELINE = "pipeline",
+    TEXT = "text",
+    TYPE = "type",
+    URL = "url"
+}
+export interface Field<Options = {}> {
     name: Name;
-    type: Type;
+    type: FieldType;
     options?: Options;
     min?: number;
     max?: number;
     required?: boolean;
     filters?: boolean | string[];
 }
-export declare type FieldType = "boolean" | "collection" | "color" | "currency" | "date" | "duration" | "email" | "file" | "length" | "list" | "name" | "number" | "occupation" | "percentage" | "phone" | "pipeline" | "text" | "type";
 export interface FieldLengthOptions {
     minLength?: number;
     maxLength?: number;

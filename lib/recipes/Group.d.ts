@@ -29,9 +29,9 @@ export interface GroupPermissions {
         };
     };
 }
-export interface GroupData {
+export interface GroupRecipe extends Recipe<GroupId> {
+    type: RecipeType.GROUP;
     name: Name;
     permissions: GroupPermissions;
 }
-export declare type GroupRecipe = Recipe<GroupId, RecipeType.GROUP> & GroupData;
 //# sourceMappingURL=Group.d.ts.map

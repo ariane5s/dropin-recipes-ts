@@ -1,6 +1,8 @@
-import { Field, FieldLengthOptions } from "../Field";
+import { Field, FieldLengthOptions, FieldType } from "../Field";
 export declare type TextFieldOptions = FieldLengthOptions & {
     lines?: number;
 };
-export declare type TextField = Field<"text", TextFieldOptions>;
+export interface TextField extends Field<TextFieldOptions> {
+    type: FieldType.TEXT;
+}
 //# sourceMappingURL=TextField.d.ts.map

@@ -27,9 +27,8 @@ export interface GroupPermissions {
   lines?: { [recipeId: string]: { [collectionId: string]: GroupLinesPermissions } }
 }
 
-export interface GroupData {
+export interface GroupRecipe extends Recipe<GroupId> {
+  type: RecipeType.GROUP
   name: Name
   permissions: GroupPermissions
 }
-
-export type GroupRecipe = Recipe<GroupId, RecipeType.GROUP> & GroupData

@@ -1,4 +1,4 @@
-import { Field } from "../Field"
+import { Field, FieldType } from "../Field"
 
 export type DateFieldOptions = {
   minDate?: Date
@@ -11,4 +11,6 @@ export type DateFieldOptions = {
   seconds?: boolean
 }
 
-export type DateField = Field<"date", DateFieldOptions>
+export interface DateField extends Field<DateFieldOptions> {
+  type: FieldType.DATE
+}

@@ -1,4 +1,6 @@
-import { Field, FieldIdOption } from "../Field";
+import { Field, FieldIdOption, FieldType } from "../Field";
 export declare type PipelineFieldOptions = FieldIdOption;
-export declare type PipelineField = Field<"pipeline", PipelineFieldOptions>;
+export interface PipelineField extends Field<PipelineFieldOptions> {
+    type: FieldType.PIPELINE;
+}
 //# sourceMappingURL=PipelineField.d.ts.map
