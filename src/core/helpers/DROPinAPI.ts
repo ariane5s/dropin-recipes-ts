@@ -1,10 +1,12 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
 import { Line, LineParams } from "../../outputs/Line"
-import { User } from "../../outputs/User"
+import { User, UserId } from "../../outputs/User"
 import { Token } from "../../outputs/Token"
 import { CollectionId } from "../../outputs/Collections"
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document"
 import { RecipeId } from "../../recipes/Recipe"
+import { NotificationId } from "../../outputs/Notification"
+import { Company } from "../../outputs/Company"
 
 enum FetchMethod {
   PUT = "PUT",
@@ -137,6 +139,20 @@ export class DROPinAPI {
   static getDocumentLines(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Line[]> {
     params.linesOnly = "1"
     return this.request<Line[]>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
+  }
+
+  static getNotifications(user: UserId) {
+    return this.request<Notification[]>(FetchMethod.GET, `users/${user}/notifs`)
+  }
+
+  static setNotificationAsRead(user: UserId, notification: NotificationId, isRead: boolean) {
+    return this.request<Notification[]>(FetchMethod.POST, `users/${user}/notifs/${notification}`, {}, {
+      is_read: isRead
+    })
+  }
+
+  static getCompanies() {
+    return this.request<Company[]>(FetchMethod.GET, `companies`)
   }
 
 }
