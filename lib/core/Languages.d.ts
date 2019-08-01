@@ -1,9 +1,4 @@
 import { NameByLanguage } from "./Name";
-export declare enum LanguageSelector {
-    ANY = "*",
-    FRENCH = "fr",
-    ENGLISH = "en"
-}
 export interface LanguageOption {
     name: NameByLanguage<string>;
     articles: boolean;

@@ -1,18 +1,12 @@
-import { Name, NameByLanguage } from "./Name"
-import { convertNameToString } from "./convertNameToString"
-
-export enum LanguageSelector {
-  ANY = "*",
-  FRENCH = "fr",
-  ENGLISH = "en",
-}
+import { NameText } from "./Name"
+import { MultipleLanguagesSelector, LanguageSelector } from "../selectors/Languages"
 
 export interface LanguageOption {
-  name: NameByLanguage<string>
+  name: MultipleLanguagesSelector<NameText>
   articles: boolean
 }
 
-export const Languages: { [language: string]: LanguageOption } = {
+export const Languages: MultipleLanguagesSelector<LanguageOption> = {
 
   // French
   [LanguageSelector.FRENCH]: {
@@ -34,17 +28,17 @@ export const Languages: { [language: string]: LanguageOption } = {
 
 }
 
-type forEachLanguageCallback<Output> = (languageId: string, name: string, options: LanguageOption) => Output | undefined
+/*type forEachLanguageCallback<Output> = (languageId: string, name: string, options: LanguageOption) => Output | undefined
 
 export function forEachLanguage<Output = any>(callback: forEachLanguageCallback<Output>, language?: string): Output[] {
   return Object.keys(Languages).reduce((output, id) => {
     const contextLanguage = typeof language !== "undefined" ? language : id
     const options = Languages[id]
-    const name = convertNameToString(contextLanguage, options.name[contextLanguage])
+    const name = nameToString(contextLanguage, options.name[contextLanguage])
     const response = callback(id, name, options)
     if(typeof response !== "undefined") {
       output.push(response)
     }
     return output
   }, [] as Output[])
-}
+}*/

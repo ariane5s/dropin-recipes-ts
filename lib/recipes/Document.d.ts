@@ -1,10 +1,10 @@
 import { RecipeFormat } from "../core/RecipeFormat";
 import { DocumentId } from "../outputs/Document";
-import { CollectionSelectors } from "../core/CollectionsSelectors";
-import { Name } from "../core/Name";
+import { CollectionSelector } from "../core/selectors/Collections";
+import { Name } from "../core/i18n/Name";
 export interface DocumentRecipe<Type = string, Options = any> extends RecipeFormat<Type, DocumentId> {
     options: Options;
-    lines: CollectionSelectors[];
+    lines: CollectionSelector[];
     name?: Name;
 }
 //# sourceMappingURL=Document.d.ts.map
