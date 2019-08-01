@@ -1,1 +1,0 @@
-{"version":3,"file":"BooleanField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/BooleanField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE/D,oBAAY,mBAAmB,GAAG,kBAAkB,CAAC,OAAO,CAAC,GAAG;IAC9D,IAAI,CAAC,EAAE,OAAO,CAAA;CACf,CAAA;AAED,MAAM,WAAW,YAAa,SAAQ,KAAK,CAAC,mBAAmB,CAAC;IAC9D,IAAI,EAAE,SAAS,CAAC,OAAO,CAAA;CACxB"}

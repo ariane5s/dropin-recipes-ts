@@ -1,1 +1,0 @@
-{"version":3,"file":"TypeField.d.ts","sourceRoot":"","sources":["../../../src/recipes/fields/TypeField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,aAAa,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE1D,oBAAY,gBAAgB,GAAG,aAAa,CAAA;AAE5C,MAAM,WAAW,SAAU,SAAQ,KAAK,CAAC,gBAAgB,CAAC;IACxD,IAAI,EAAE,SAAS,CAAC,IAAI,CAAA;CACrB"}
