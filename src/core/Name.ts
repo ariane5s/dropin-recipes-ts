@@ -5,8 +5,8 @@ export interface NameByNumber {
   many?: string
 }
 
-export type NameByLanguage = {
-  [language: string]: string | NameByNumber
+export type NameByLanguage<Format = string | NameByNumber> = {
+  [language: string]: Format
 }
 
 export type Name = string | NameByLanguage

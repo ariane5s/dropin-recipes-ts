@@ -1,4 +1,5 @@
 export * from "./CollectionsSelectors"
+export * from "./convertNameToString"
 export * from "./DROPinAPI"
 export * from "./FieldsSelectors"
 export * from "./Languages"
