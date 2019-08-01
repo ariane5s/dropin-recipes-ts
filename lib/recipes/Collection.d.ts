@@ -1,11 +1,11 @@
 import { Field } from "./Field";
-import { Name } from "../core/Name";
-import { RecipeFormat } from "../core/RecipeFormat";
+import { Recipe, RecipeType } from "../core/types/Recipes";
 import { CollectionId } from "../outputs/Collections";
+import { Name } from "../core/i18n/Name";
 export declare type CollectionRecipeFields = {
     [id: string]: Field;
 };
-export interface CollectionRecipe extends RecipeFormat<"Collection", CollectionId> {
+export interface CollectionRecipe extends Recipe<CollectionId, RecipeType.COLLECTION> {
     name?: Name;
     fields: CollectionRecipeFields;
 }

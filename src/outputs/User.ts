@@ -1,4 +1,4 @@
-import { Output } from "../core/Output"
+import { Output } from "../core/types/Outputs"
 
 export type UserId = string
 

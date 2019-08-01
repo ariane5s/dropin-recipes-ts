@@ -1,5 +1,5 @@
-import { RecipeFormat } from "../core/RecipeFormat"
-import { Name } from "../core/Name"
+import { Recipe, RecipeType } from "../core/types/Recipes"
+import { Name } from "../core/i18n/Name"
 import { CompanyId, CollectionId, DocumentId } from "../outputs"
 import { SectionId, ChildrenSection } from "./Section"
 
@@ -9,7 +9,7 @@ export type RecipeRecipeVariables = { [name: string]: string | number }
 
 export type RecipeRecipeSection = SectionId | ChildrenSection
 
-export interface RecipeRecipe extends RecipeFormat<"Recipe", RecipeId> {
+export interface RecipeRecipe extends Recipe<RecipeId, RecipeType.RECIPE> {
   company: CompanyId
   name?: Name
   authors?: string[]

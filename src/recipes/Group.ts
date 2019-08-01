@@ -1,5 +1,5 @@
 import { Name } from "../core"
-import { RecipeFormat } from "../core/RecipeFormat"
+import { Recipe, RecipeType } from "../core/types/Recipes"
 import { GroupId } from "../outputs/Group"
 
 export interface GroupCompaniesPermissions {
@@ -32,4 +32,4 @@ export interface GroupData {
   permissions: GroupPermissions
 }
 
-export type GroupRecipe = RecipeFormat<"Group", GroupId> & GroupData
+export type GroupRecipe = Recipe<GroupId, RecipeType.GROUP> & GroupData

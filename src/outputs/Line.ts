@@ -1,4 +1,4 @@
-import { Output } from "../core/Output"
+import { Output } from "../core/types/Outputs"
 import { RecipeId } from "../recipes/Recipe"
 import { CollectionId } from "./Collections"
 

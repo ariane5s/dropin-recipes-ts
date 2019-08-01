@@ -1,4 +1,4 @@
-import { DocumentRecipe } from "../Document"
+import { DocumentRecipe, DocumentType } from "../core/types/Documents"
 
 export interface GoogleMapsDocumentBounds {
   west: number
@@ -19,4 +19,4 @@ export interface GoogleMapsDocumentOptions {
   style: GoogleMapsDocumentOptionsStyle[]
 }
 
-export type GoogleMapsDocument = DocumentRecipe<"GoogleMapsDocument", GoogleMapsDocumentOptions>
+export type GoogleMapsDocument = DocumentRecipe<DocumentType.GoogleMaps, GoogleMapsDocumentOptions>

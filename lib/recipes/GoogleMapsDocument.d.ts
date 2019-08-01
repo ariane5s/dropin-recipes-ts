@@ -1,4 +1,4 @@
-import { DocumentRecipe } from "./Document";
+import { DocumentRecipe, DocumentType } from "../core/types/Documents";
 export interface GoogleMapsDocumentBounds {
     west: number;
     east: number;
@@ -17,5 +17,5 @@ export interface GoogleMapsDocumentOptions {
     bounds: GoogleMapsDocumentBounds & any;
     style: GoogleMapsDocumentOptionsStyle[];
 }
-export declare type GoogleMapsDocument = DocumentRecipe<"GoogleMapsDocument", GoogleMapsDocumentOptions>;
+export declare type GoogleMapsDocument = DocumentRecipe<DocumentType.GoogleMaps, GoogleMapsDocumentOptions>;
 //# sourceMappingURL=GoogleMapsDocument.d.ts.map

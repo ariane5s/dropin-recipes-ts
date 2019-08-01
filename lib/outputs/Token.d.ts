@@ -1,4 +1,4 @@
-import { Output } from "../core/Output";
+import { Output } from "../core/types/Outputs";
 import { UserId } from "./User";
 export declare type TokenId = string;
 export interface TokenData {

@@ -1,4 +1,4 @@
-import { Name } from "../core/Name";
+import { Name } from "../core/i18n/Name";
 export interface Field<Type = string, Options = {}> {
     name: Name;
     type: Type;

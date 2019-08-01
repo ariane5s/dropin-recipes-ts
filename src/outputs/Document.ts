@@ -7,10 +7,6 @@ export interface DocumentParams extends LineParams {
   t?: string // DEPRECATED, BEARER IS USED
 }
 
-export enum DocumentType {
-  GoogleMaps = "GoogleMapsDocument"
-}
-
 export interface Document<Options = any> {
   type: DocumentType
   options: Options

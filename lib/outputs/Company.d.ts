@@ -1,4 +1,4 @@
-import { RecipeOutput } from "../core/Output";
+import { RecipeOutput } from "../core/types/Outputs";
 export declare type CompanyId = string;
 export interface CompanyData {
     name: string;
