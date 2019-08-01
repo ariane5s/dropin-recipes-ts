@@ -1,0 +1,1 @@
+{"version":3,"file":"EmailField.d.ts","sourceRoot":"","sources":["../../../../src/recipes/collections/fields/EmailField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE3C,oBAAY,iBAAiB,GAAG;IAC9B,OAAO,CAAC,EAAE,MAAM,EAAE,CAAA;CACnB,CAAA;AAED,MAAM,WAAW,UAAW,SAAQ,KAAK,CAAC,iBAAiB,CAAC;IAC1D,IAAI,EAAE,SAAS,CAAC,KAAK,CAAA;CACtB"}
