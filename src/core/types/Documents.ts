@@ -1,7 +1,7 @@
 import { Recipe } from "./Recipes"
 import { DocumentId } from "../../outputs/Document"
 import { CollectionSelector } from "../selectors/Collections"
-import { Name } from "../i18n/Name"
+import { Name } from "../i18n/Names"
 
 export enum DocumentType {
   GoogleMaps = "GoogleMapsDocument"

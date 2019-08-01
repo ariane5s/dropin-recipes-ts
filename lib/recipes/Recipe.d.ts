@@ -1,5 +1,5 @@
 import { Recipe, RecipeType } from "../core/types/Recipes";
-import { Name } from "../core/i18n/Name";
+import { Name } from "../core/i18n/Names";
 import { CompanyId, CollectionId, DocumentId } from "../outputs";
 import { SectionId, ChildrenSection } from "./Section";
 export declare type RecipeId = string;

@@ -1,5 +1,5 @@
 
-export enum ConditionSelectorOperator {
+export enum SelectorConditionOperator {
   EQUALS = "=",
   SUPERIOR = ">",
   INFERIOR = "<",
@@ -8,8 +8,8 @@ export enum ConditionSelectorOperator {
   UNKNOWN = "",
 }
 
-export interface ConditionSelector {
-  operator: ConditionSelectorOperator
+export interface SelectorCondition {
+  operator: SelectorConditionOperator
   value: string
   default?: boolean
 }

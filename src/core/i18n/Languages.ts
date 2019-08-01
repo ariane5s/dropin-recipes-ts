@@ -1,4 +1,4 @@
-import { NameText } from "./Name"
+import { NameText } from "./Names"
 import { MultipleLanguagesSelector, LanguageSelector } from "../selectors/Languages"
 
 export interface LanguageOption {

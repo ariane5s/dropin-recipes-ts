@@ -1,4 +1,4 @@
-import { Name, NameByLanguage, NameText } from "./Name"
+import { Name, NameByLanguage, NameText } from "./Names"
 import { LanguageSelector, AnyLanguageSelector } from "../selectors/Languages"
 
 interface Options {
@@ -18,7 +18,7 @@ export function nameToString(name: Name, options: Options = {}): NameText {
 
     // Global text is set
     if(typeof name[AnyLanguageSelector] !== "undefined") {
-      current = name[AnyLanguageSelector]
+      current = name[AnyLanguageSelector] as NameByLanguage
 
     // Current language
     } else if(typeof options.language !== "undefined" && typeof name[options.language] !== "undefined") {
@@ -28,10 +28,13 @@ export function nameToString(name: Name, options: Options = {}): NameText {
     // Is NameByNumber
     if(typeof current === "object") {
       if((typeof options.count === "undefined" || options.count === 1) && typeof current.one !== "undefined") {
-        output = current.one
-      } else if(typeof current.many !== "undefined") {
-        output = current.many
+        return current.one
       }
+      if(typeof current.many !== "undefined") {
+        return current.many
+      }
+    } else {
+      output = current
     }
   }
 

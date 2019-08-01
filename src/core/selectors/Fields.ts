@@ -1,9 +1,9 @@
-import { ConditionSelector, MultipleConditionsSelector } from "./Condition"
+import { SelectorCondition, MultipleConditionsSelector } from "./Condition"
 
 export interface FieldSelector {
   name: string
   display?: boolean
-  selectors?: ConditionSelector[]
+  selectors?: SelectorCondition[]
   abstract?: boolean
   filters?: boolean
 }

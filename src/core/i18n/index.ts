@@ -1,3 +1,3 @@
 export * from "./Languages"
-export * from "./Name"
+export * from "./Names"
 export * from "./nameToString"

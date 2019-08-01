@@ -11,7 +11,7 @@ export type MultipleLanguagesSelector<Type> = {
 }
 
 export type AnyOrMultipleLanguagesSelector<Type> = {
-  [AnyLanguageSelector]: Type
+  [AnyLanguageSelector]?: Type
 } & {
   [language in LanguageSelector]?: Type
 }
