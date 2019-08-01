@@ -3,7 +3,7 @@ import { CompanyId } from "../outputs"
 import { Name } from "../core"
 
 export interface CompanyRecipe extends Recipe<CompanyId> {
-  type: RecipeType.COLLECTION
+  type: RecipeType.COMPANY
   name: Name
   administrators: string[]
 }
