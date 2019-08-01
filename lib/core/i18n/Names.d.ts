@@ -12,4 +12,7 @@ export interface NameByNumber {
 export declare type NameByLanguage = NameText | NameByNumber;
 export declare type MultipleNamesByLanguage = MultipleLanguagesSelector<NameByLanguage>;
 export declare type Name = NameText | AnyOrMultipleLanguagesSelector<NameByLanguage>;
+export declare type MultipleNames<Type = Name> = {
+    [name: string]: Type;
+};
 //# sourceMappingURL=Names.d.ts.map

@@ -18,3 +18,5 @@ export type NameByLanguage = NameText | NameByNumber
 export type MultipleNamesByLanguage = MultipleLanguagesSelector<NameByLanguage>
 
 export type Name = NameText | AnyOrMultipleLanguagesSelector<NameByLanguage>
+
+export type MultipleNames<Type = Name> = { [name: string]: Type }
