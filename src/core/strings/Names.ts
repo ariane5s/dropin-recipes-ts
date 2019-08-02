@@ -1,4 +1,4 @@
-import { MultipleLanguagesSelector, AnyOrMultipleLanguagesSelector } from "../selectors"
+import { MultipleLanguagesSelector } from "../selectors"
 
 export type NameText = string
 
@@ -17,6 +17,4 @@ export type NameByLanguage = NameText | NameByNumber
 
 export type MultipleNamesByLanguage = MultipleLanguagesSelector<NameByLanguage>
 
-export type Name = NameText | AnyOrMultipleLanguagesSelector<NameByLanguage>
-
-export type MultipleNames<Type = Name> = { [name: string]: Type }
+export type Name = NameText | MultipleNamesByLanguage

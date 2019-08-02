@@ -1,5 +1,4 @@
 import { Language, LanguageOption, LanguageOptions } from "../Languages"
-import { stringToLanguage } from "./stringToLanguage"
 import { languageToString } from "./languageToString"
 
 type Callback<Output> = (
@@ -9,13 +8,10 @@ type Callback<Output> = (
 ) => Output | void
 
 export function forEachLanguage<Output = any>(callback: Callback<Output>, useDefaultLanguage = true): Output[] {
-  return Object.values(Language).reduce((output, languageId) => {
+  return Object.values(Language).reduce((output, language: Language) => {
     // Current language
-    const language = stringToLanguage(languageId)
-    const options = LanguageOptions[language]
-
-    // Language name
     const name = languageToString(language, useDefaultLanguage)
+    const options = LanguageOptions[language]
 
     // Response
     const response = callback(language, name, options)

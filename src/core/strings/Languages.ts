@@ -1,5 +1,5 @@
 import { NameText } from "./Names"
-import { MultipleLanguagesSelector } from "../selectors/Languages"
+import { AllLanguagesSelector } from "../selectors/Languages"
 
 export enum Language {
   ENGLISH = "en",
@@ -9,11 +9,11 @@ export enum Language {
 export const DEFAULT_LANGUAGE = Language.ENGLISH
 
 export interface LanguageOption {
-  name: MultipleLanguagesSelector<NameText>
+  name: AllLanguagesSelector<NameText>
   articles: boolean
 }
 
-export const LanguageOptions: MultipleLanguagesSelector<LanguageOption> = {
+export const LanguageOptions: AllLanguagesSelector<LanguageOption> = {
 
   // English
   [Language.ENGLISH]: {

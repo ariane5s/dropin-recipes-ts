@@ -1,13 +1,13 @@
 import { Language } from "../strings"
 
-export type LanguageSelector = Language | "*"
-
 export const AnyLanguageSelector = "*"
 
-export type MultipleLanguagesSelector<Type> = {
-  [language in Language]: Type
+export type LanguageSelector = "*" | Language
+
+export type MultipleLanguagesSelector<Content> = {
+  [language: string]: Content
 }
 
-export type AnyOrMultipleLanguagesSelector<Type> = {
-  [language in LanguageSelector]?: Type
+export type AllLanguagesSelector<Content> = {
+  [language in Language]: Content
 }

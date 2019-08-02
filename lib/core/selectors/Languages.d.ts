@@ -1,10 +1,10 @@
 import { Language } from "../strings";
-export declare type LanguageSelector = Language | "*";
 export declare const AnyLanguageSelector = "*";
-export declare type MultipleLanguagesSelector<Type> = {
-    [language in Language]: Type;
+export declare type LanguageSelector = "*" | Language;
+export declare type MultipleLanguagesSelector<Content> = {
+    [language: string]: Content;
 };
-export declare type AnyOrMultipleLanguagesSelector<Type> = {
-    [language in LanguageSelector]?: Type;
+export declare type AllLanguagesSelector<Content> = {
+    [language in Language]: Content;
 };
 //# sourceMappingURL=Languages.d.ts.map
