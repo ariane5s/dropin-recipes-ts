@@ -1,10 +1,12 @@
 import { Name, NameText } from "./Names";
 import { LanguageSelector } from "../selectors/Languages";
-interface Options {
+export interface nameToStringOptions {
     language?: LanguageSelector;
     count?: number;
-    vars?: any;
+    lowercase?: boolean;
 }
-export declare function nameToString(name: Name, options?: Options): NameText;
-export {};
+export declare type nameToStringVars = {
+    [name: string]: string;
+};
+export declare function nameToString(name: Name, options?: nameToStringOptions, vars?: nameToStringVars): NameText;
 //# sourceMappingURL=nameToString.d.ts.map

@@ -1,13 +1,15 @@
-import { Name, NameByLanguage, NameText } from "./Names"
-import { LanguageSelector, AnyLanguageSelector } from "../selectors/Languages"
+import { AnyLanguageSelector } from "../../selectors/Languages"
+import { NameText, NameByLanguage, Name } from "../Names"
+import { Language } from "../Languages"
 
-interface Options {
-  language?: LanguageSelector
-  count?: number
-  vars?: any
+export interface nameToStringOptions {
+  language?: Language
+  count?: Number
 }
 
-export function nameToString(name: Name, options: Options = {}): NameText {
+export type nameToStringVars = { [name: string]: string }
+
+export function nameToString(name: Name, options: nameToStringOptions = {}): string {
   if(typeof name === "string") return name
 
   let output: NameText = ""
@@ -28,10 +30,9 @@ export function nameToString(name: Name, options: Options = {}): NameText {
     // Is NameByNumber
     if(typeof current === "object") {
       if((typeof options.count === "undefined" || options.count === 1) && typeof current.one !== "undefined") {
-        return current.one
-      }
-      if(typeof current.many !== "undefined") {
-        return current.many
+        output = current.one
+      } else if(typeof current.many !== "undefined") {
+        output = current.many
       }
     } else {
       output = current

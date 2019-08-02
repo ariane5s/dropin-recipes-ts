@@ -1,4 +1,4 @@
-import { Name } from "../../core/i18n/Names"
+import { Name } from "../../core/strings/Names"
 
 export enum FieldType {
   BOOLEAN = "boolean",
