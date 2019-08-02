@@ -1,8 +1,6 @@
 import { Language, LanguageOption, LanguageOptions } from "../Languages"
 import { stringToLanguage } from "./stringToLanguage"
-import { nameToString } from "./nameToString"
-import { currentLanguage } from "../i18n"
-import { languageToString } from "./languageToString";
+import { languageToString } from "./languageToString"
 
 type Callback<Output> = (
   language: Language,
