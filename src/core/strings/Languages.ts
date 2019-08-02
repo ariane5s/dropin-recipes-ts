@@ -6,6 +6,8 @@ export enum Language {
   FRENCH = "fr",
 }
 
+export const DEFAULT_LANGUAGE = Language.ENGLISH
+
 export interface LanguageOption {
   name: MultipleLanguagesSelector<NameText>
   articles: boolean
@@ -13,22 +15,22 @@ export interface LanguageOption {
 
 export const LanguageOptions: MultipleLanguagesSelector<LanguageOption> = {
 
-  // French
-  [Language.FRENCH]: {
-    name: {
-      [Language.FRENCH]: "Français",
-      [Language.ENGLISH]: "French",
-    },
-    articles: true,
-  },
-
   // English
   [Language.ENGLISH]: {
     name: {
-      [Language.FRENCH]: "Anglais",
       [Language.ENGLISH]: "English",
+      [Language.FRENCH]: "Anglais",
     },
     articles: false,
+  },
+
+  // French
+  [Language.FRENCH]: {
+    name: {
+      [Language.ENGLISH]: "French",
+      [Language.FRENCH]: "Français",
+    },
+    articles: true,
   },
 
 }

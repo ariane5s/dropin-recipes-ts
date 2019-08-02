@@ -1,6 +1,6 @@
 import { AnyLanguageSelector } from "../../selectors/Languages"
 import { NameText, NameByLanguage, Name } from "../Names"
-import { Language } from "../Languages"
+import { Language, DEFAULT_LANGUAGE } from "../Languages"
 
 export interface nameToStringOptions {
   language?: Language
@@ -25,6 +25,10 @@ export function nameToString(name: Name, options: nameToStringOptions = {}): str
     // Current language
     } else if(typeof options.language !== "undefined" && typeof name[options.language] !== "undefined") {
       current = name[options.language] as NameByLanguage
+
+    // Default language
+    } else if(typeof name[DEFAULT_LANGUAGE] !== "undefined") {
+      current = name[DEFAULT_LANGUAGE] as NameByLanguage
     }
 
     // Is NameByNumber

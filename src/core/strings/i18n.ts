@@ -1,11 +1,11 @@
-import { Language } from "./Languages"
+import { DEFAULT_LANGUAGE } from "./Languages"
 import { stringToLanguage, nameToString } from "./functions"
 import { Name } from "./Names"
 
-export let currentLanguage = Language.ENGLISH
+export let CURRENT_LANGUAGE = DEFAULT_LANGUAGE
 
 export function setCurrentLocale(locale: string) {
-  currentLanguage = stringToLanguage(locale)
+  CURRENT_LANGUAGE = stringToLanguage(locale)
 }
 
 export type i18nVars = { [name: string]: string }
@@ -22,7 +22,7 @@ export function i18n(name: Name, options: i18nOptions = {}) {
   // Is Name
   if(typeof name === "object") {
     output = nameToString(name, {
-      language: currentLanguage,
+      language: CURRENT_LANGUAGE,
       count: options.count,
     })
   } else {
