@@ -6,6 +6,7 @@ import { DocumentId, Document, DocumentParams } from "../../outputs/Document";
 import { RecipeId } from "../../recipes/Recipe";
 import { NotificationId } from "../../outputs/Notification";
 import { Company } from "../../outputs/Company";
+import { Notification } from "../../outputs/Notification";
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;

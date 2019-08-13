@@ -1,4 +1,5 @@
 import { LineParams, Line } from "./Line"
+import { DocumentType } from "../core/types/Documents"
 
 export type DocumentId = string
 

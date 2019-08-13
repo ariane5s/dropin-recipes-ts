@@ -1,4 +1,5 @@
 import { LineParams, Line } from "./Line";
+import { DocumentType } from "../core/types/Documents";
 export declare type DocumentId = string;
 export interface DocumentParams extends LineParams {
     linesOnly?: 1 | "1";
