@@ -1,0 +1,979 @@
+{
+	"info": {
+		"_postman_id": "93f342f9-5e9f-4ac7-8582-c2f61a576024",
+		"name": "Recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "List companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/companies",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"test-company\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/companies",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/companies/{{TEST_COMPANY_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies",
+								"{{TEST_COMPANY_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/companies/{{TEST_COMPANY_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies",
+								"{{TEST_COMPANY_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/companies/{{TEST_COMPANY_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies",
+								"{{TEST_COMPANY_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lines",
+			"item": [
+				{
+					"name": "List lines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/lines",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"lines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new line",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/lines",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"lines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a line",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/lines/{{TEST_LINE_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"lines",
+								"{{TEST_LINE_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a line",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/companies/{{TEST_LINE_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies",
+								"{{TEST_LINE_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a line",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/companies/{{TEST_LINE_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"companies",
+								"{{TEST_LINE_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ff50806-f05c-4b32-b786-e1a6af99bdee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b784f-868a-4565-93f3-8db4bafd8613",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Create line",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/recipes/recipe-name/collections/507f1f77bcf86cd799439011/lines",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes",
+								"recipe-name",
+								"collections",
+								"507f1f77bcf86cd799439011",
+								"lines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/recipes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new recipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"recipe name\",\n\t\"company\": \"507f1f77bcf86cd799439011\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/recipes",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a recipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/recipes/recipe-name",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes",
+								"recipe-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a recipe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/recipes/recipe-name",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes",
+								"recipe-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/recipes/recipe-name",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes",
+								"recipe-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get lines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/recipes/recipe-name/collections/507f1f77bcf86cd799439011/lines",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"recipes",
+								"recipe-name",
+								"collections",
+								"507f1f77bcf86cd799439011",
+								"lines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get lines",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/recipes/recipe-name/collections/507f1f77bcf86cd799439011/lines",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"recipes",
+										"recipe-name",
+										"collections",
+										"507f1f77bcf86cd799439011",
+										"lines"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "vary",
+									"value": "accept-encoding"
+								},
+								{
+									"key": "content-encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Jun 2019 16:22:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"message\": \"lines.toObject is not a function\",\n        \"type\": \"unknown_error\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ff50806-f05c-4b32-b786-e1a6af99bdee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b784f-868a-4565-93f3-8db4bafd8613",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Revisions",
+			"item": [
+				{
+					"name": "List revisions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/revisions",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a revision",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/revisions/{{TEST_REVISION_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"revisions",
+								"{{TEST_REVISION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore a revision",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/revisions/{{TEST_REVISION_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"revisions",
+								"{{TEST_REVISION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a revision",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/revisions/{{TEST_REVISION_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"revisions",
+								"{{TEST_REVISION_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ff50806-f05c-4b32-b786-e1a6af99bdee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b784f-868a-4565-93f3-8db4bafd8613",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Tokens",
+			"item": [
+				{
+					"name": "List tokens",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjA3ODkwMjkwLCJzdWIiOiI1Y2UyYzQ0YTg3M2M3MzQxNjBjNDgzNmMifQ.xE5eGAs3xMGueUcDFmYOqPZJEg1Zlt670zlbCEObuDE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/tokens",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjA3NjMxODIxLCJzdWIiOiI1Y2UyYzQ0YTg3M2M3MzQxNjBjNDgzNmMifQ.IgZXt8eT8WERKN8ZjeJbVpQLz2LuCfkEjDh3b46oM00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"tokenName\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/tokens",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/tokens/{{TEST_TOKEN_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"tokens",
+								"{{TEST_TOKEN_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjA3NjMxODIxLCJzdWIiOiI1Y2UyYzQ0YTg3M2M3MzQxNjBjNDgzNmMifQ.IgZXt8eT8WERKN8ZjeJbVpQLz2LuCfkEjDh3b46oM00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/tokens/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjA3NjY1NDEyLCJzdWIiOiI1Y2UyYzQ0YTg3M2M3MzQxNjBjNDgzNmMifQ.HZnyEPgrH0yDrPVUQ9B0P8TDeK3ZG78taGscVs6VlOs",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"tokens",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjA3NjY1NDEyLCJzdWIiOiI1Y2UyYzQ0YTg3M2M3MzQxNjBjNDgzNmMifQ.HZnyEPgrH0yDrPVUQ9B0P8TDeK3ZG78taGscVs6VlOs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a token",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/tokens/{{TEST_TOKEN_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"tokens",
+								"{{TEST_TOKEN_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ff50806-f05c-4b32-b786-e1a6af99bdee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b784f-868a-4565-93f3-8db4bafd8613",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register a new user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"email@email.fr\",\n\t\"firstname\": \"firstname\",\n\t\"lastname\": \"lastname\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/users",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{TEST_USER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{TEST_USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Thomas\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/{{TEST_USER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{TEST_USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/{{TEST_USER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{TEST_USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.fr\",\n\t\"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ff50806-f05c-4b32-b786-e1a6af99bdee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b784f-868a-4565-93f3-8db4bafd8613",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2fec16b5-97e0-4592-83b5-28523d16cf95",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b93f84b2-7f33-4969-9a63-a67b33a58df5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9806d5ff-702a-4809-85de-e016d2a59f92",
+			"key": "TEST_COMPANY_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "d8b3c1aa-7418-455a-9d7f-accb95f2c5be",
+			"key": "TEST_LINE_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "6bec3de0-8925-4376-8746-d1709515e532",
+			"key": "TEST_RECIPE_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c4f1667d-3ab2-429c-a7b7-f332439b3a0f",
+			"key": "TEST_REVISION_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "8ea50090-499d-418d-9399-752e68b2468f",
+			"key": "TEST_TOKEN_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "05287cc2-2ce4-483d-bfe9-0340a192a9fc",
+			"key": "TEST_USER_ID",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
