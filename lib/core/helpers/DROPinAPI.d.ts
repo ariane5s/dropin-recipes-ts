@@ -5,7 +5,7 @@ import { CollectionId } from "../../outputs/Collections";
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document";
 import { RecipeId } from "../../recipes/Recipe";
 import { NotificationId } from "../../outputs/Notification";
-import { Company } from "../../outputs/Company";
+import { Company, CompanyId } from "../../outputs/Company";
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;
@@ -33,5 +33,6 @@ export declare class DROPinAPI {
     static getNotifications(user: UserId): Promise<Notification[]>;
     static setNotificationAsRead(user: UserId, notification: NotificationId, isRead: boolean): Promise<Notification[]>;
     static getCompanies(): Promise<Company[]>;
+    static getCompany<Output = Company>(company: CompanyId): Promise<Output>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map
