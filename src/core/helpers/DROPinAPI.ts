@@ -7,7 +7,6 @@ import { DocumentId, Document, DocumentParams } from "../../outputs/Document"
 import { RecipeId } from "../../recipes/Recipe"
 import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
-import { Output } from "../types";
 
 enum FetchMethod {
   PUT = "PUT",
@@ -160,4 +159,31 @@ export class DROPinAPI {
     return this.request<Output>(FetchMethod.GET, `companies/${company}`)
   }
 
+  static createCompany(name: string, slug: string, administrators: string[]) {
+    return this.request<Company>(FetchMethod.PUT, "companies", {}, {
+      name,
+      slug,
+      administrators
+    })
+  }
+
+  static updateCompany(name: string, slug: string, administrators: string[]) {
+    return this.request<Company>(FetchMethod.POST, `companies/${slug}`, {}, {
+      name,
+      slug,
+      administrators
+    })
+  }
+
+  static deleteCompany(slug: string) {
+    return this.request<Company>(FetchMethod.DELETE, `companies/${slug}`)
+  }
+  
+  static createCollection(name: string, slug: string, fields: string[]) {
+    return this.request<Collection>(FetchMethod.PUT, "collections", {}, {
+      name,
+      slug,
+      administrators
+    })
+  }
 }

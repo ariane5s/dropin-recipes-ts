@@ -34,5 +34,9 @@ export declare class DROPinAPI {
     static setNotificationAsRead(user: UserId, notification: NotificationId, isRead: boolean): Promise<Notification[]>;
     static getCompanies(): Promise<Company[]>;
     static getCompany<Output = Company>(company: CompanyId): Promise<Output>;
+    static createCompany(name: string, slug: string, administrators: string[]): Promise<Company>;
+    static updateCompany(name: string, slug: string, administrators: string[]): Promise<Company>;
+    static deleteCompany(slug: string): Promise<Company>;
+    static createCollection(name: string, slug: string, fields: string[]): Promise<any>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map
