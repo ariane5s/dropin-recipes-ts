@@ -3,7 +3,7 @@ import { User, UserId } from "../../outputs/User";
 import { Token } from "../../outputs/Token";
 import { CollectionId } from "../../outputs/Collections";
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document";
-import { RecipeId } from "../../recipes/Recipe";
+import { RecipeId, RecipeRecipe } from "../../recipes/Recipe";
 import { NotificationId } from "../../outputs/Notification";
 import { Company, CompanyId } from "../../outputs/Company";
 export declare class DROPinAPI {
@@ -38,5 +38,9 @@ export declare class DROPinAPI {
     static updateCompany(name: string, slug: string, administrators: string[]): Promise<Company>;
     static deleteCompany(slug: string): Promise<Company>;
     static createCollection(name: string, slug: string, fields: string[]): Promise<any>;
+    static getRecipe<Output = RecipeRecipe>(recipe: RecipeId): Promise<Output>;
+    static createRecipe(name: string, slug: string, company: string, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
+    static updateRecipe(name: string, slug: string, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
+    static deleteRecipe(slug: string): Promise<RecipeRecipe>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map

@@ -4,9 +4,10 @@ import { User, UserId } from "../../outputs/User"
 import { Token } from "../../outputs/Token"
 import { CollectionId } from "../../outputs/Collections"
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document"
-import { RecipeId } from "../../recipes/Recipe"
+import { RecipeId, RecipeRecipe } from "../../recipes/Recipe"
 import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
+import { Recipe } from "../types";
 
 enum FetchMethod {
   PUT = "PUT",
@@ -185,5 +186,32 @@ export class DROPinAPI {
       slug,
       administrators
     })
+  }
+
+  static getRecipe<Output = RecipeRecipe>(recipe: RecipeId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}`)
+  }
+
+  static createRecipe(name: string, slug: string, company: string, authors: string[], administrators: string[]) {
+    return this.request<RecipeRecipe>(FetchMethod.PUT, "recipes", {}, {
+      name,
+      slug,
+      company,
+      authors,
+      administrators
+    })
+  }
+
+  static updateRecipe(name: string, slug: string, authors: string[], administrators: string[]) {
+    return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${slug}`, {}, {
+      name,
+      slug,
+      authors,
+      administrators
+    })
+  }
+
+  static deleteRecipe(slug: string) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${slug}`)
   }
 }
