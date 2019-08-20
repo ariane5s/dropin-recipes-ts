@@ -8,6 +8,7 @@ import { RecipeId, RecipeRecipe } from "../../recipes/Recipe"
 import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
 import { Recipe } from "../types";
+import { CollectionRecipe } from "../../recipes";
 
 enum FetchMethod {
   PUT = "PUT",
@@ -160,58 +161,74 @@ export class DROPinAPI {
     return this.request<Output>(FetchMethod.GET, `companies/${company}`)
   }
 
-  static createCompany(name: string, slug: string, administrators: string[]) {
+  static createCompany(name: string, company: CompanyId, administrators: string[]) {
     return this.request<Company>(FetchMethod.PUT, "companies", {}, {
       name,
-      slug,
+      slug: company,
       administrators
     })
   }
 
-  static updateCompany(name: string, slug: string, administrators: string[]) {
-    return this.request<Company>(FetchMethod.POST, `companies/${slug}`, {}, {
+  static updateCompany(name: string, company: CompanyId, administrators: string[]) {
+    return this.request<Company>(FetchMethod.POST, `companies/${company}`, {}, {
       name,
-      slug,
+      slug: company,
       administrators
     })
   }
 
-  static deleteCompany(slug: string) {
-    return this.request<Company>(FetchMethod.DELETE, `companies/${slug}`)
+  static deleteCompany(company: CompanyId) {
+    return this.request<Company>(FetchMethod.DELETE, `companies/${company}`)
+  }
+
+  static getCollection<Output = CollectionRecipe>(recipe: RecipeId, collection: CollectionId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}`)
   }
   
-  static createCollection(name: string, slug: string, fields: string[]) {
-    return this.request<Collection>(FetchMethod.PUT, "collections", {}, {
+  static createCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any) {
+    return this.request<CollectionRecipe>(FetchMethod.PUT, `recipes/${recipe}/collections`, {}, {
       name,
-      slug,
-      administrators
+      slug: collection,
+      fields
     })
+  }
+
+  static updateCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any) {
+    return this.request<CollectionRecipe>(FetchMethod.POST, `recipes/${recipe}/collections/${collection}`, {}, {
+      name,
+      slug: collection,
+      fields
+    })
+  }
+
+  static deleteCollection(recipe: RecipeId, collection: CollectionId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/collections/${collection}`)
   }
 
   static getRecipe<Output = RecipeRecipe>(recipe: RecipeId) {
     return this.request<Output>(FetchMethod.GET, `recipes/${recipe}`)
   }
 
-  static createRecipe(name: string, slug: string, company: string, authors: string[], administrators: string[]) {
+  static createRecipe(name: string, recipeId: RecipeId, company: string, authors: string[], administrators: string[]) {
     return this.request<RecipeRecipe>(FetchMethod.PUT, "recipes", {}, {
       name,
-      slug,
+      slug: recipeId,
       company,
       authors,
       administrators
     })
   }
 
-  static updateRecipe(name: string, slug: string, authors: string[], administrators: string[]) {
-    return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${slug}`, {}, {
+  static updateRecipe(name: string, recipeId: RecipeId, authors: string[], administrators: string[]) {
+    return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${recipeId}`, {}, {
       name,
-      slug,
+      slug: recipeId,
       authors,
       administrators
     })
   }
 
-  static deleteRecipe(slug: string) {
-    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${slug}`)
+  static deleteRecipe(recipe: RecipeId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}`)
   }
 }
