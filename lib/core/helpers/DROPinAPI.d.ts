@@ -6,7 +6,7 @@ import { DocumentId, Document, DocumentParams } from "../../outputs/Document";
 import { RecipeId, RecipeRecipe } from "../../recipes/Recipe";
 import { NotificationId } from "../../outputs/Notification";
 import { Company, CompanyId } from "../../outputs/Company";
-import { CollectionRecipe } from "../../recipes";
+import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes";
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;
@@ -46,5 +46,9 @@ export declare class DROPinAPI {
     static createRecipe(name: string, recipeId: RecipeId, company: string, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
     static updateRecipe(name: string, recipeId: RecipeId, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
     static deleteRecipe(recipe: RecipeId): Promise<RecipeRecipe>;
+    static getSection<Output = SectionRecipe>(recipe: RecipeId, section: SectionId): Promise<Output>;
+    static createSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
+    static updateSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
+    static deleteSection(recipe: RecipeId, section: SectionId): Promise<RecipeRecipe>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map
