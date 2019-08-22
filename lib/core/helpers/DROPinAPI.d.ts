@@ -3,10 +3,11 @@ import { User, UserId } from "../../outputs/User";
 import { Token } from "../../outputs/Token";
 import { CollectionId } from "../../outputs/Collections";
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document";
-import { RecipeId } from "../../recipes/Recipe";
+import { RecipeId, RecipeRecipe } from "../../recipes/Recipe";
 import { NotificationId } from "../../outputs/Notification";
-import { Company } from "../../outputs/Company";
+import { Company, CompanyId } from "../../outputs/Company";
 import { Notification } from "../../outputs/Notification";
+import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes";
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;
@@ -34,5 +35,21 @@ export declare class DROPinAPI {
     static getNotifications(user: UserId): Promise<Notification[]>;
     static setNotificationAsRead(user: UserId, notification: NotificationId, isRead: boolean): Promise<Notification[]>;
     static getCompanies(): Promise<Company[]>;
+    static getCompany<Output = Company>(company: CompanyId): Promise<Output>;
+    static createCompany(name: string, company: CompanyId, administrators: string[]): Promise<Company>;
+    static updateCompany(name: string, company: CompanyId, administrators: string[]): Promise<Company>;
+    static deleteCompany(company: CompanyId): Promise<Company>;
+    static getCollection<Output = CollectionRecipe>(recipe: RecipeId, collection: CollectionId): Promise<Output>;
+    static createCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any): Promise<CollectionRecipe>;
+    static updateCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any): Promise<CollectionRecipe>;
+    static deleteCollection(recipe: RecipeId, collection: CollectionId): Promise<RecipeRecipe>;
+    static getRecipe<Output = RecipeRecipe>(recipe: RecipeId): Promise<Output>;
+    static createRecipe(name: string, recipeId: RecipeId, company: string, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
+    static updateRecipe(name: string, recipeId: RecipeId, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
+    static deleteRecipe(recipe: RecipeId): Promise<RecipeRecipe>;
+    static getSection<Output = SectionRecipe>(recipe: RecipeId, section: SectionId): Promise<Output>;
+    static createSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
+    static updateSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
+    static deleteSection(recipe: RecipeId, section: SectionId): Promise<RecipeRecipe>;
 }
 //# sourceMappingURL=DROPinAPI.d.ts.map
