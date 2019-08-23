@@ -9,6 +9,7 @@ import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
 import { Notification } from "../../outputs/Notification"
 import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes"
+import { Recipe } from "../../outputs/Recipe";
 
 
 enum FetchMethod {
@@ -156,6 +157,10 @@ export class DROPinAPI {
 
   static getCompanies() {
     return this.request<Company[]>(FetchMethod.GET, `companies`)
+  }
+
+  static getCompaniesAndRecipes(user: UserId) {
+    return this.request<Recipe[]>(FetchMethod.GET, `users/${user}/companies-and-recipes`)
   }
 
   static getCompany<Output = Company>(company: CompanyId) {
