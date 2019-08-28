@@ -215,7 +215,7 @@ export class DROPinAPI {
     return this.request<Output>(FetchMethod.GET, `recipes/${recipe}`)
   }
 
-  static createRecipe(name: string, recipeId: RecipeId, company: string, authors: string[], administrators: string[]) {
+  static createRecipe(name: any, recipeId: RecipeId, company: string, administrators: string[], authors?: string[]) {
     return this.request<RecipeRecipe>(FetchMethod.PUT, "recipes", {}, {
       name,
       slug: recipeId,
@@ -225,7 +225,7 @@ export class DROPinAPI {
     })
   }
 
-  static updateRecipe(name: string, recipeId: RecipeId, authors: string[], administrators: string[]) {
+  static updateRecipe(name: any, recipeId: RecipeId, administrators: string[], authors?: string[]) {
     return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${recipeId}`, {}, {
       name,
       slug: recipeId,
@@ -260,5 +260,9 @@ export class DROPinAPI {
 
   static deleteSection(recipe: RecipeId, section: SectionId) {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
+  }
+
+  static getLines(recipe: RecipeId, collection: CollectionId) {
+    return this.request<LineRecipe>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}`)
   }
 }

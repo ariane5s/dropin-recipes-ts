@@ -29,7 +29,6 @@ export declare class DROPinAPI {
     }>;
     static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token>;
     static validateEmail(email: string, hash: string): Promise<Token>;
-    static getLines<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>[]>;
     static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
@@ -46,8 +45,8 @@ export declare class DROPinAPI {
     static updateCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any): Promise<CollectionRecipe>;
     static deleteCollection(recipe: RecipeId, collection: CollectionId): Promise<RecipeRecipe>;
     static getRecipe<Output = RecipeRecipe>(recipe: RecipeId): Promise<Output>;
-    static createRecipe(name: string, recipeId: RecipeId, company: string, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
-    static updateRecipe(name: string, recipeId: RecipeId, authors: string[], administrators: string[]): Promise<RecipeRecipe>;
+    static createRecipe(name: any, recipeId: RecipeId, company: string, administrators: string[], authors?: string[]): Promise<RecipeRecipe>;
+    static updateRecipe(name: any, recipeId: RecipeId, administrators: string[], authors?: string[]): Promise<RecipeRecipe>;
     static deleteRecipe(recipe: RecipeId): Promise<RecipeRecipe>;
     static getSection<Output = SectionRecipe>(recipe: RecipeId, section: SectionId): Promise<Output>;
     static createSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
