@@ -262,7 +262,7 @@ export class DROPinAPI {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
   }
 
-  static getLines(recipe: RecipeId, collection: CollectionId) {
-    return this.request<LineRecipe>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}`)
+  static getLines(recipe: RecipeId, section: SectionId) {
+    return this.request<LineRecipe>(FetchMethod.GET, `recipes/${recipe}/sections/${section}`)
   }
 }
