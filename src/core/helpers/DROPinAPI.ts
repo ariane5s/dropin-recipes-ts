@@ -261,8 +261,4 @@ export class DROPinAPI {
   static deleteSection(recipe: RecipeId, section: SectionId) {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
   }
-
-  static getLines(recipe: RecipeId, section: SectionId) {
-    return this.request<LineRecipe>(FetchMethod.GET, `recipes/${recipe}/sections/${section}`)
-  }
 }

@@ -29,6 +29,7 @@ export declare class DROPinAPI {
     }>;
     static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token>;
     static validateEmail(email: string, hash: string): Promise<Token>;
+    static getLines<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>[]>;
     static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
