@@ -4,10 +4,13 @@ import { User, UserId } from "../../outputs/User"
 import { Token } from "../../outputs/Token"
 import { CollectionId } from "../../outputs/Collections"
 import { DocumentId, Document, DocumentParams } from "../../outputs/Document"
-import { RecipeId } from "../../recipes/Recipe"
+import { RecipeId, RecipeRecipe } from "../../recipes/Recipe"
 import { NotificationId } from "../../outputs/Notification"
-import { Company } from "../../outputs/Company"
+import { Company, CompanyId } from "../../outputs/Company"
 import { Notification } from "../../outputs/Notification"
+import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes"
+import { Recipe } from "../../outputs/Recipe";
+
 
 enum FetchMethod {
   PUT = "PUT",
@@ -156,4 +159,106 @@ export class DROPinAPI {
     return this.request<Company[]>(FetchMethod.GET, `companies`)
   }
 
+  static getCompaniesAndRecipes(user: UserId) {
+    return this.request<Recipe[]>(FetchMethod.GET, `users/${user}/companies-and-recipes`)
+  }
+
+  static getCompany<Output = Company>(company: CompanyId) {
+    return this.request<Output>(FetchMethod.GET, `companies/${company}`)
+  }
+
+  static createCompany(name: string, company: CompanyId, administrators: string[]) {
+    return this.request<Company>(FetchMethod.PUT, "companies", {}, {
+      name,
+      slug: company,
+      administrators
+    })
+  }
+
+  static updateCompany(name: string, company: CompanyId, administrators: string[]) {
+    return this.request<Company>(FetchMethod.POST, `companies/${company}`, {}, {
+      name,
+      slug: company,
+      administrators
+    })
+  }
+
+  static deleteCompany(company: CompanyId) {
+    return this.request<Company>(FetchMethod.DELETE, `companies/${company}`)
+  }
+
+  static getCollection<Output = CollectionRecipe>(recipe: RecipeId, collection: CollectionId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}`)
+  }
+  
+  static createCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any) {
+    return this.request<CollectionRecipe>(FetchMethod.PUT, `recipes/${recipe}/collections`, {}, {
+      name,
+      slug: collection,
+      fields
+    })
+  }
+
+  static updateCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any) {
+    return this.request<CollectionRecipe>(FetchMethod.POST, `recipes/${recipe}/collections/${collection}`, {}, {
+      name,
+      slug: collection,
+      fields
+    })
+  }
+
+  static deleteCollection(recipe: RecipeId, collection: CollectionId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/collections/${collection}`)
+  }
+
+  static getRecipe<Output = RecipeRecipe>(recipe: RecipeId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}`)
+  }
+
+  static createRecipe(name: any, recipeId: RecipeId, company: string, administrators: string[], authors?: string[]) {
+    return this.request<RecipeRecipe>(FetchMethod.PUT, "recipes", {}, {
+      name,
+      slug: recipeId,
+      company,
+      authors,
+      administrators
+    })
+  }
+
+  static updateRecipe(name: any, recipeId: RecipeId, administrators: string[], authors?: string[]) {
+    return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${recipeId}`, {}, {
+      name,
+      slug: recipeId,
+      authors,
+      administrators
+    })
+  }
+
+  static deleteRecipe(recipe: RecipeId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}`)
+  }
+
+  static getSection<Output = SectionRecipe>(recipe: RecipeId, section: SectionId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}/sections/${section}`)
+  }
+  
+  static createSection(recipe: RecipeId, section: SectionId, name: any, list: any) {
+    return this.request<SectionRecipe>(FetchMethod.PUT, `recipes/${recipe}/sections`, {}, {
+      name,
+      slug: section,
+      list
+    })
+  }
+
+  static updateSection(recipe: RecipeId, section: SectionId, name: any, list: any) {
+    return this.request<SectionRecipe>(FetchMethod.POST, `recipes/${recipe}/sections/${section}`, {}, {
+      name,
+      slug: section,
+      list
+    })
+  }
+
+  static deleteSection(recipe: RecipeId, section: SectionId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
+  }
 }
