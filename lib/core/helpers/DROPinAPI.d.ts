@@ -1,4 +1,4 @@
-import { Line, LineParams } from "../../outputs/Line";
+import { Line, LineParams, LineId } from "../../outputs/Line";
 import { User, UserId } from "../../outputs/User";
 import { Token } from "../../outputs/Token";
 import { CollectionId } from "../../outputs/Collections";
@@ -31,6 +31,7 @@ export declare class DROPinAPI {
     static validateEmail(email: string, hash: string): Promise<Token>;
     static getLines<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>[]>;
     static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
+    static updateLine(line: LineId, data: any): Promise<Line<any>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
     static getNotifications(user: UserId): Promise<Notification[]>;

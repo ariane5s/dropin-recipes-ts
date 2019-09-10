@@ -1,5 +1,5 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
-import { Line, LineParams } from "../../outputs/Line"
+import { Line, LineParams, LineId } from "../../outputs/Line"
 import { User, UserId } from "../../outputs/User"
 import { Token } from "../../outputs/Token"
 import { CollectionId } from "../../outputs/Collections"
@@ -130,6 +130,12 @@ export class DROPinAPI {
         return Promise.reject("More than one line found")
       }
       return Promise.resolve(lines[0])
+    })
+  }
+
+  static updateLine(line: LineId, data: any) {
+    return this.request<Line>(FetchMethod.POST, `lines/${line}`, {}, {
+      data
     })
   }
 
