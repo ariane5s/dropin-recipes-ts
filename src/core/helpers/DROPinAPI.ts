@@ -32,8 +32,8 @@ export class DROPinAPI {
   private static VERSION = 1
   private static TOKEN: string
 
-  static enableLocalMode(port: number) {
-    this.URL = `http://localhost:${port}`
+  static enableLocalMode(port: number = 8040, address: string = "localhost", https: boolean = false) {
+    this.URL = `http${https ? "s" : ""}://${address}:${port}`
   }
 
   static setToken(token: string) {

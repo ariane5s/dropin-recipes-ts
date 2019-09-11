@@ -13,7 +13,7 @@ export declare class DROPinAPI {
     private static URL;
     private static VERSION;
     private static TOKEN;
-    static enableLocalMode(port: number): void;
+    static enableLocalMode(port?: number, address?: string, https?: boolean): void;
     static setToken(token: string): void;
     private static fetch;
     private static request;
