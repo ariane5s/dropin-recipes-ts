@@ -84,18 +84,20 @@ export class DROPinAPI {
     })
   }
 
-  static register(invitationCode: string, email: string, password: string): Promise<{ user: User }> {
+  static register(invitationCode: string, email: string, password: string, realm?: string): Promise<{ user: User }> {
     return this.request<{ user: User }>(FetchMethod.PUT, "users", {}, {
       invitation_code: invitationCode,
       email: email,
       password: password,
+      realm: realm
     })
   }
 
-  static login(email: string, password: string): Promise<{ user: User, token: Token }> {
+  static login(email: string, password: string, realm?: string): Promise<{ user: User, token: Token }> {
     return this.request<{ user: User, token: Token }>(FetchMethod.POST, "auth", {}, {
       email: email,
       password: password,
+      realm: realm
     })
   }
 

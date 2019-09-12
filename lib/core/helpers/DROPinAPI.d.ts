@@ -17,10 +17,10 @@ export declare class DROPinAPI {
     static setToken(token: string): void;
     private static fetch;
     private static request;
-    static register(invitationCode: string, email: string, password: string): Promise<{
+    static register(invitationCode: string, email: string, password: string, realm?: string): Promise<{
         user: User;
     }>;
-    static login(email: string, password: string): Promise<{
+    static login(email: string, password: string, realm?: string): Promise<{
         user: User;
         token: Token;
     }>;
