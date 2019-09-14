@@ -47,7 +47,7 @@ export class DROPinAPI {
     return fetch(url, init)
   }
 
-  private static request<Output>(method: FetchMethod, path: string, params: FetchParams = {}, body?: any): Promise<Output> {
+  static request<Output>(method: FetchMethod, path: string, params: FetchParams = {}, body?: any): Promise<Output> {
     let init: FetchInit = {  method, headers: { "content-type": "application/json" } }
 
     // Token

@@ -9,6 +9,15 @@ import { Company, CompanyId } from "../../outputs/Company";
 import { Notification } from "../../outputs/Notification";
 import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes";
 import { Recipe } from "../../outputs/Recipe";
+declare enum FetchMethod {
+    PUT = "PUT",
+    GET = "GET",
+    POST = "POST",
+    DELETE = "DELETE"
+}
+declare type FetchParams = {
+    [name: string]: string;
+};
 export declare class DROPinAPI {
     private static URL;
     private static VERSION;
@@ -16,7 +25,7 @@ export declare class DROPinAPI {
     static enableLocalMode(port?: number, address?: string, https?: boolean): void;
     static setToken(token: string): void;
     private static fetch;
-    private static request;
+    static request<Output>(method: FetchMethod, path: string, params?: FetchParams, body?: any): Promise<Output>;
     static register(invitationCode: string, email: string, password: string, realm?: string): Promise<{
         user: User;
     }>;
@@ -55,4 +64,5 @@ export declare class DROPinAPI {
     static updateSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
     static deleteSection(recipe: RecipeId, section: SectionId): Promise<RecipeRecipe>;
 }
+export {};
 //# sourceMappingURL=DROPinAPI.d.ts.map
