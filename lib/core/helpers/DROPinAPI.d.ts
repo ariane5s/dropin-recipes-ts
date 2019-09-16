@@ -40,6 +40,7 @@ export declare class DROPinAPI {
     static validateEmail(email: string, hash: string): Promise<Token>;
     static getLines<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>[]>;
     static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params?: LineParams): Promise<Line<Data>>;
+    static createLine(recipe: RecipeId, collection: CollectionId, data: any, version: number): Promise<CollectionRecipe>;
     static updateLine(line: LineId, data: any): Promise<Line<any>>;
     static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Output>;
     static getDocumentLines(recipe: RecipeId, document: DocumentId, params?: DocumentParams): Promise<Line[]>;
