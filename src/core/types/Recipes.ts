@@ -5,6 +5,7 @@ export enum RecipeType {
   GROUP = "Group",
   RECIPE = "Recipe",
   SECTION = "Section",
+  PERMISSION = "Permission"
 }
 
 export interface Recipe<Id, Type = RecipeType> {

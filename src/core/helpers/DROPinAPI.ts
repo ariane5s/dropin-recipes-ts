@@ -9,7 +9,8 @@ import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
 import { Notification } from "../../outputs/Notification"
 import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes"
-import { Recipe } from "../../outputs/Recipe";
+import { Recipe } from "../../outputs/Recipe"
+import { PermissionId, Permission } from "../../outputs"
 
 
 enum FetchMethod {
@@ -275,5 +276,25 @@ export class DROPinAPI {
 
   static deleteSection(recipe: RecipeId, section: SectionId) {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
+  }
+
+  static getPermission<Output = Permission>(permission: PermissionId) {
+    return this.request<Output>(FetchMethod.GET, `permissions/${permission}`)
+  }
+
+  static createPermission(name: string, permission: PermissionId, collections: any) {
+    return this.request<Permission>(FetchMethod.PUT, "permissions", {}, {
+      name,
+      slug: permission,
+      collections
+    })
+  }
+
+  static updatePermission(name: string, permission: PermissionId, collections: any) {
+    return this.request<Permission>(FetchMethod.POST, `permissions/${permission}`, {}, {
+      name,
+      slug: permission,
+      collections
+    })
   }
 }
