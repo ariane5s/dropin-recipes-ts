@@ -1,1 +1,0 @@
-{"version":3,"file":"PipelineField.d.ts","sourceRoot":"","sources":["../../../../src/recipes/collections/fields/PipelineField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,aAAa,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE1D,oBAAY,oBAAoB,GAAG,aAAa,CAAA;AAEhD,MAAM,WAAW,aAAc,SAAQ,KAAK,CAAC,oBAAoB,CAAC;IAChE,IAAI,EAAE,SAAS,CAAC,QAAQ,CAAA;CACzB"}

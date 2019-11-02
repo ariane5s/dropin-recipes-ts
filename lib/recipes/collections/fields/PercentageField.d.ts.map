@@ -1,1 +1,0 @@
-{"version":3,"file":"PercentageField.d.ts","sourceRoot":"","sources":["../../../../src/recipes/collections/fields/PercentageField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE/D,oBAAY,sBAAsB,GAAG,kBAAkB,CAAA;AAEvD,MAAM,WAAW,eAAgB,SAAQ,KAAK,CAAC,sBAAsB,CAAC;IACpE,IAAI,EAAE,SAAS,CAAC,UAAU,CAAA;CAC3B"}

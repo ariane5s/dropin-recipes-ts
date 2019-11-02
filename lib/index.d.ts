@@ -1,4 +1,2 @@
-export * from "./core";
-export * from "./outputs";
-export * from "./recipes";
+/// <reference path="Catalog/index.d.ts" />
 //# sourceMappingURL=index.d.ts.map

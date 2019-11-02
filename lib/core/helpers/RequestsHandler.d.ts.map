@@ -1,1 +1,0 @@
-{"version":3,"file":"RequestsHandler.d.ts","sourceRoot":"","sources":["../../../src/core/helpers/RequestsHandler.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAA;AAC/C,OAAO,EAAE,YAAY,EAAE,MAAM,eAAe,CAAA;AAC5C,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,MAAM,oBAAoB,CAAA;AAGrD,wBAAgB,eAAe,CAAC,IAAI,EAAE,MAAM,EAAE,QAAQ,EAAE,UAAU,EAAE,YAAY;;EAM/E"}
