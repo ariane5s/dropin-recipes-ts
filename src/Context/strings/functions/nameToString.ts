@@ -1,5 +1,5 @@
 import { AnyLanguageSelector } from "../../Languages"
-import { NameText, NameByLanguage, Name } from "../Names"
+import { NameText, NameByLanguage, Name } from "../../../Formats/Names"
 import { Language, DEFAULT_LANGUAGE } from "../Languages"
 
 export interface nameToStringOptions {

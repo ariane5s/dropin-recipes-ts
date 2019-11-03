@@ -1,6 +1,6 @@
 import { Output } from "../core/types/Outputs"
 import { RecipeId } from "../recipes/Recipe"
-import { CollectionId } from "./Response"
+import { CollectionId } from "../Collections/Collection"
 
 export type LineId = string
 

@@ -1,10 +1,9 @@
-import { RecipeOutput } from "../core/types/Outputs"
+import { Line } from "../../Formats/Line"
 
 export type CompanyId = string
 
 export interface CompanyData {
   name: string
-  slug?: string
 }
 
-export type Company = RecipeOutput<"Company", CompanyId> & CompanyData
+export type Company = Line<CompanyId> & CompanyData

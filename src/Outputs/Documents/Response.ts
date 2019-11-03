@@ -1,4 +1,4 @@
-import { LineParams, Line } from "../../Storage/Collections/Output"
+import { LineParams, Line } from "../../Storage/Lines/Line"
 import { DocumentType } from "../core/types/Documents"
 
 export type DocumentId = string

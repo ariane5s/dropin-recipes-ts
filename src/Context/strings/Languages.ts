@@ -1,4 +1,4 @@
-import { NameText } from "./Names"
+import { NameText } from "../../Formats/Names"
 import { AllLanguagesSelector } from "../Languages"
 
 export enum Language {

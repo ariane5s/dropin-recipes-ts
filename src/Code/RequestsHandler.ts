@@ -1,4 +1,4 @@
-import { RecipeId } from "../Catalog/Recipes/RecipeOutput"
+import { RecipeId } from "../Catalog/Recipes/Recipet"
 import { CollectionId } from "../API/Responses"
 import { Line, LineParams } from "../../API/Line"
 import { DROPinAPI } from "../Context/API"

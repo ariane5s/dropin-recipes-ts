@@ -1,15 +1,4 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
-import { Line, LineParams, LineId } from "../Storage/Collections/Output"
-import { User, UserId } from "../Auth/Users/User"
-import { Token } from "../Auth/Tokens/Token"
-import { CollectionId } from "../Storage/Collections/Response"
-import { DocumentId, Document, DocumentParams } from "../Outputs/Documents/Response"
-import { RecipeId, RecipeRecipe } from "../Catalog/Recipes/RecipeOutput"
-import { NotificationId } from "../Outputs/Notifications/Response"
-import { Company, CompanyId } from "../Auth/Companies/Company"
-import { Notification } from "../Outputs/Notifications/Response"
-import { CollectionRecipe, SectionRecipe, SectionId } from "../recipes"
-import { Recipe } from "../Catalog/Recipes/Response"
 
 enum FetchMethod {
   PUT = "PUT",
@@ -26,8 +15,8 @@ interface FetchInit {
 
 type FetchParams = { [name: string]: string }
 
-class oldAPI {
-  private static URL = "https://api.dropin.link"
+export class API {
+  private static URL = "https://dropin.recipes"
   private static VERSION = 1
   private static TOKEN: string
 
@@ -82,75 +71,10 @@ class oldAPI {
         }, reject)
     })
   }
+}
 
-  static register(invitationCode: string, email: string, password: string, realm?: string): Promise<{ user: User }> {
-    return this.request<{ user: User }>(FetchMethod.PUT, "users", {}, {
-      invitation_code: invitationCode,
-      email: email,
-      password: password,
-      realm: realm
-    })
-  }
 
-  static login(email: string, password: string, realm?: string): Promise<{ user: User, token: Token }> {
-    return this.request<{ user: User, token: Token }>(FetchMethod.POST, "auth", {}, {
-      email: email,
-      password: password,
-      realm: realm
-    })
-  }
-
-  static forgottenPassword(email: string, hash?: string): Promise<{ success: boolean }> {
-    let params: FetchParams = { email }
-    if(typeof hash !== "undefined") params.hash = hash
-    return this.request<{ success: boolean }>(FetchMethod.POST, "forgotten", {}, params)
-  }
-
-  static forgottenPasswordUpdate(email: string, hash: string, password: string): Promise<Token> {
-    return this.request<Token>(FetchMethod.POST, "forgotten", {}, {
-      email: email,
-      hash: hash,
-      password: password,
-    })
-  }
-
-  static validateEmail(email: string, hash: string): Promise<Token> {
-    return this.request<Token>(FetchMethod.GET, "validate", {
-      email: email,
-      hash: hash,
-    })
-  }
-
-  static getLines<Data>(recipe: RecipeId, collection: CollectionId, params: LineParams = {}): Promise<Line<Data>[]> {
-    return this.request<Line<Data>[]>(FetchMethod.GET, `recipes/${recipe}/collections/${collection}/lines`, params as FetchParams)
-  }
-
-  static getOneLine<Data>(recipe: RecipeId, collection: CollectionId, params: LineParams = {}): Promise<Line<Data>> {
-    return this.getLines<Data>(recipe, collection, params).then(lines => {
-      if(lines.length !== 1) {
-        return Promise.reject("More than one line found")
-      }
-      return Promise.resolve(lines[0])
-    })
-  }
-
-  static updateLine(line: LineId, data: any) {
-    return this.request<Line>(FetchMethod.POST, `lines/${line}`, {}, {
-      data
-    })
-  }
-
-  static getDocument<Output = Document>(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Output> {
-    if(typeof params.linesOnly !== "undefined") {
-      return Promise.reject(`The "linesOnly" parameter can only be used by the getDocumentLines function`)
-    }
-    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
-  }
-
-  static getDocumentLines(recipe: RecipeId, document: DocumentId, params: DocumentParams = {}): Promise<Line[]> {
-    params.linesOnly = "1"
-    return this.request<Line[]>(FetchMethod.GET, `recipes/${recipe}/documents/${document}`, params as FetchParams)
-  }
+/*class oldAPI {
 
   static getNotifications(user: UserId) {
     return this.request<Notification[]>(FetchMethod.GET, `users/${user}/notifs`)
@@ -268,4 +192,4 @@ class oldAPI {
   static deleteSection(recipe: RecipeId, section: SectionId) {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
   }
-}
+}*/

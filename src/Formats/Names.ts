@@ -1,4 +1,4 @@
-import { MultipleLanguagesSelector } from ".."
+import { MultipleLanguagesSelector } from "../Context"
 
 export type NameText = string
 

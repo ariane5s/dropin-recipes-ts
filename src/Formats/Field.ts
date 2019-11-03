@@ -1,4 +1,4 @@
-import { Name } from "../Context/strings/Names"
+import { Name } from "./Names"
 
 export enum FieldType {
   BOOLEAN = "boolean",

@@ -1,4 +1,4 @@
-import { DocumentRecipe, DocumentType } from "../Documents/Recipe"
+import { DocumentRecipe, DocumentType } from "../Documents/DocumentRecipe"
 
 export interface GoogleMapsDocumentBounds {
   west: number

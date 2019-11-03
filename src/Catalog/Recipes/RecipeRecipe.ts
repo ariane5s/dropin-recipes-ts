@@ -1,5 +1,5 @@
 import { Recipe, RecipeType } from "."
-import { Name } from "../../Context/strings/Names"
+import { Name } from "../../Formats/Names"
 import { CompanyId, CollectionId, DocumentId } from "../API/Responses"
 import { SectionId, ChildrenSection } from "../../Display/Section"
 

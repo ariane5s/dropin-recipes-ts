@@ -1,10 +1,13 @@
+import { RecipeOutput } from "../../Formats/Line"
 
-module DROPin {
-  export namespace Catalog {
-    export namespace Recipes {
-      export interface Recipe {
+export type Id = string
 
-      }
-    }
-  }
+export interface RecipeData {
+  name: string
+  company: any
+  collections: any[]
+  sections: any[]
+  slug?: string
 }
+
+export const Recipe = RecipeFormat<"Recipe", RecipeId> & RecipeData
