@@ -1,6 +1,6 @@
 import { DEFAULT_LANGUAGE, Language } from "./Languages"
 import { stringToLanguage, nameToString } from "./functions"
-import { Name } from "../../Formats/Names"
+import { Name } from "../../Formats/Name"
 
 export let CURRENT_LANGUAGE: Language = DEFAULT_LANGUAGE
 

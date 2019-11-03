@@ -1,3 +1,5 @@
 export * from "./Companies"
 export * from "./Groups"
+export * from "./Permissions"
 export * from "./Tokens"
+export * from "./Users"

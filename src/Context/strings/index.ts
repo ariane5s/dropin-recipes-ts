@@ -1,4 +1,4 @@
 export * from "./functions"
 export * from "./Languages"
-export * from "../../Formats/Names"
+export * from "../../Formats/Name"
 export * from "./i18n"
