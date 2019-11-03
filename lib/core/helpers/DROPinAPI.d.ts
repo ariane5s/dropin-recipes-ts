@@ -9,6 +9,8 @@ import { Company, CompanyId } from "../../outputs/Company";
 import { Notification } from "../../outputs/Notification";
 import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes";
 import { Recipe } from "../../outputs/Recipe";
+import { PermissionId, Permission } from "../../outputs";
+import { Name } from "../strings";
 declare enum FetchMethod {
     PUT = "PUT",
     GET = "GET",
@@ -49,21 +51,25 @@ export declare class DROPinAPI {
     static getCompanies(): Promise<Company[]>;
     static getCompaniesAndRecipes(user: UserId): Promise<Recipe[]>;
     static getCompany<Output = Company>(company: CompanyId): Promise<Output>;
-    static createCompany(name: string, company: CompanyId, administrators: string[]): Promise<Company>;
-    static updateCompany(name: string, company: CompanyId, administrators: string[]): Promise<Company>;
+    static createCompany(name: Name, company: CompanyId, administrators: string[]): Promise<Company>;
+    static updateCompany(name: Name, company: CompanyId, administrators: string[]): Promise<Company>;
     static deleteCompany(company: CompanyId): Promise<Company>;
     static getCollection<Output = CollectionRecipe>(recipe: RecipeId, collection: CollectionId): Promise<Output>;
     static createCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any): Promise<CollectionRecipe>;
     static updateCollection(recipe: RecipeId, collection: CollectionId, name: any, fields: any): Promise<CollectionRecipe>;
     static deleteCollection(recipe: RecipeId, collection: CollectionId): Promise<RecipeRecipe>;
     static getRecipe<Output = RecipeRecipe>(recipe: RecipeId): Promise<Output>;
-    static createRecipe(name: any, recipeId: RecipeId, company: string, administrators: string[], authors?: string[]): Promise<RecipeRecipe>;
-    static updateRecipe(name: any, recipeId: RecipeId, administrators: string[], authors?: string[]): Promise<RecipeRecipe>;
+    static createRecipe(name: any, recipeId: RecipeId, company: string, administrators?: string[], authors?: string[]): Promise<RecipeRecipe>;
+    static updateRecipe(name: any, recipeId: RecipeId, administrators?: string[], authors?: string[]): Promise<RecipeRecipe>;
     static deleteRecipe(recipe: RecipeId): Promise<RecipeRecipe>;
     static getSection<Output = SectionRecipe>(recipe: RecipeId, section: SectionId): Promise<Output>;
     static createSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
     static updateSection(recipe: RecipeId, section: SectionId, name: any, list: any): Promise<SectionRecipe>;
     static deleteSection(recipe: RecipeId, section: SectionId): Promise<RecipeRecipe>;
+    static getPermission<Output = Permission>(recipe: RecipeId, permission: PermissionId): Promise<Output>;
+    static createPermission(recipe: RecipeId, permission: PermissionId, name: Name, collections: any): Promise<Permission>;
+    static updatePermission(recipe: RecipeId, permission: PermissionId, name: Name, collections: any): Promise<Permission>;
+    static deletePermission(recipe: RecipeId, permission: PermissionId): Promise<RecipeRecipe>;
 }
 export {};
 //# sourceMappingURL=DROPinAPI.d.ts.map

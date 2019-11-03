@@ -3,7 +3,8 @@ export declare enum RecipeType {
     COMPANY = "Company",
     GROUP = "Group",
     RECIPE = "Recipe",
-    SECTION = "Section"
+    SECTION = "Section",
+    PERMISSION = "Permission"
 }
 export interface Recipe<Id, Type = RecipeType> {
     apiVersion: number;

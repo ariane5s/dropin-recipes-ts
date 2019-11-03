@@ -9,7 +9,9 @@ import { NotificationId } from "../../outputs/Notification"
 import { Company, CompanyId } from "../../outputs/Company"
 import { Notification } from "../../outputs/Notification"
 import { CollectionRecipe, SectionRecipe, SectionId } from "../../recipes"
-import { Recipe } from "../../outputs/Recipe";
+import { Recipe } from "../../outputs/Recipe"
+import { PermissionId, Permission } from "../../outputs"
+import { Name } from "../strings";
 
 
 enum FetchMethod {
@@ -182,7 +184,7 @@ export class DROPinAPI {
     return this.request<Output>(FetchMethod.GET, `companies/${company}`)
   }
 
-  static createCompany(name: string, company: CompanyId, administrators: string[]) {
+  static createCompany(name: Name, company: CompanyId, administrators: string[]) {
     return this.request<Company>(FetchMethod.PUT, "companies", {}, {
       name,
       slug: company,
@@ -190,7 +192,7 @@ export class DROPinAPI {
     })
   }
 
-  static updateCompany(name: string, company: CompanyId, administrators: string[]) {
+  static updateCompany(name: Name, company: CompanyId, administrators: string[]) {
     return this.request<Company>(FetchMethod.POST, `companies/${company}`, {}, {
       name,
       slug: company,
@@ -230,7 +232,7 @@ export class DROPinAPI {
     return this.request<Output>(FetchMethod.GET, `recipes/${recipe}`)
   }
 
-  static createRecipe(name: any, recipeId: RecipeId, company: string, administrators: string[], authors?: string[]) {
+  static createRecipe(name: any, recipeId: RecipeId, company: string, administrators?: string[], authors?: string[]) {
     return this.request<RecipeRecipe>(FetchMethod.PUT, "recipes", {}, {
       name,
       slug: recipeId,
@@ -240,7 +242,7 @@ export class DROPinAPI {
     })
   }
 
-  static updateRecipe(name: any, recipeId: RecipeId, administrators: string[], authors?: string[]) {
+  static updateRecipe(name: any, recipeId: RecipeId, administrators?: string[], authors?: string[]) {
     return this.request<RecipeRecipe>(FetchMethod.POST, `recipes/${recipeId}`, {}, {
       name,
       slug: recipeId,
@@ -275,5 +277,29 @@ export class DROPinAPI {
 
   static deleteSection(recipe: RecipeId, section: SectionId) {
     return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/sections/${section}`)
+  }
+
+  static getPermission<Output = Permission>(recipe: RecipeId, permission: PermissionId) {
+    return this.request<Output>(FetchMethod.GET, `recipes/${recipe}/permissions/${permission}`)
+  }
+
+  static createPermission(recipe: RecipeId, permission: PermissionId, name: Name, collections: any) {
+    return this.request<Permission>(FetchMethod.PUT, `recipes/${recipe}/permissions`, {}, {
+      name,
+      slug: permission,
+      collections
+    })
+  }
+
+  static updatePermission(recipe: RecipeId, permission: PermissionId, name: Name, collections: any) {
+    return this.request<Permission>(FetchMethod.POST, `recipes/${recipe}/permissions/${permission}`, {}, {
+      name,
+      slug: permission,
+      collections
+    })
+  }
+
+  static deletePermission(recipe: RecipeId, permission: PermissionId) {
+    return this.request<RecipeRecipe>(FetchMethod.DELETE, `recipes/${recipe}/permissions/${permission}`)
   }
 }
