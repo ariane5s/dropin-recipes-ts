@@ -1,1 +1,0 @@
-{"version":3,"file":"TextField.d.ts","sourceRoot":"","sources":["../../../../src/recipes/collections/fields/TextField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE/D,oBAAY,gBAAgB,GAAG,kBAAkB,GAAG;IAClD,KAAK,CAAC,EAAE,MAAM,CAAA;CACf,CAAA;AAED,MAAM,WAAW,SAAU,SAAQ,KAAK,CAAC,gBAAgB,CAAC;IACxD,IAAI,EAAE,SAAS,CAAC,IAAI,CAAA;CACrB"}

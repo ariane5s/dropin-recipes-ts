@@ -1,1 +1,0 @@
-{"version":3,"file":"CurrencyField.d.ts","sourceRoot":"","sources":["../../../../src/recipes/collections/fields/CurrencyField.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,kBAAkB,EAAE,SAAS,EAAE,MAAM,UAAU,CAAA;AAE/D,oBAAY,oBAAoB,GAAG,kBAAkB,GAAG;IACtD,MAAM,EAAE,MAAM,CAAA;CACf,CAAA;AAED,MAAM,WAAW,aAAc,SAAQ,KAAK,CAAC,oBAAoB,CAAC;IAChE,IAAI,EAAE,SAAS,CAAC,QAAQ,CAAA;CACzB"}
