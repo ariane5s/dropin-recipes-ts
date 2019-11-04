@@ -1,4 +1,4 @@
-import { Line } from "../../Formats/Line"
+import { ModelResponse } from "../../Formats/Models/ModelResponse"
 
 export type CompanyId = string
 
@@ -6,4 +6,4 @@ export interface CompanyData {
   name: string
 }
 
-export type Company = Line<CompanyId> & CompanyData
+export type Company = ModelResponse<CompanyId, CompanyData>

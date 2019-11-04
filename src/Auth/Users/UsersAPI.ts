@@ -1,4 +1,4 @@
-import { API } from "../../Context/API"
+import { API } from "../../Code/API"
 import { User } from "./User"
 
 export class UsersAPI {

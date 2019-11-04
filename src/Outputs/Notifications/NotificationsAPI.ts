@@ -1,4 +1,4 @@
-import { API } from "../../Context/API"
+import { API } from "../../Code/API"
 
 export class NotificationsAPI {
 

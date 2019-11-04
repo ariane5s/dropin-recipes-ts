@@ -1,3 +1,3 @@
 export * from "./Fields"
-export * from "./RecipeFormat"
+export * from "./Tags"
 export * from "./Field"

@@ -1,4 +1,5 @@
-import { API } from "../../Context/API"
+import { API, FetchMethod } from "../../Code/API"
+import { Company } from "./Company"
 
 export class CompaniesAPI {
 

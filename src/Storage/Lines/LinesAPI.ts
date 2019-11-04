@@ -1,6 +1,6 @@
 import { RecipeId } from "../../Catalog/Recipes/RecipeRecipe"
 import { CollectionId } from "../Collections/Collection"
-import { API } from "../../Context/API"
+import { API } from "../../Code/API"
 
 export class LinesAPI {
 

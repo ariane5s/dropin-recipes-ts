@@ -1,4 +1,4 @@
-import { API } from "../../Context/API"
+import { API } from "../../Code/API"
 
 export class CollectionsAPI {
   static getCollection<Output = CollectionRecipe>(recipe: RecipeId, collection: CollectionId) {

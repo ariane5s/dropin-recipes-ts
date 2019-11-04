@@ -1,9 +1,8 @@
-import { Recipe, RecipeType } from "../../Catalog/Recipes"
-import { CompanyId } from "../API/Responses"
-import { Name } from "../core"
+import { ModelRecipe, RecipeType } from "../../Formats/Models/ModelRecipe"
+import { CompanyId } from "./Company"
 
-export interface CompanyRecipe extends Recipe<CompanyId> {
-  type: RecipeType.COMPANY
-  name: Name
+export interface CompanyRecipeData {
   administrators: string[]
 }
+
+export type CompanyRecipe = ModelRecipe<RecipeType.COMPANY, CompanyId, CompanyRecipeData>
