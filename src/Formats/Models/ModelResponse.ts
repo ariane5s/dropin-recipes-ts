@@ -1,9 +1,7 @@
-import { ResponseType } from "../../Context"
 
-export type ModelResponse<Id, Type extends ResponseType, Data> = {
+export type Entity<Id, Data> = {
   id: Id
-  type: Type
   createdAt: Date
   updatedAt: Date
-  removedAt: Date
+  removedAt: null | Date
 } & Data

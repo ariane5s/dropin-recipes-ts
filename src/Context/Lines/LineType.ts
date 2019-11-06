@@ -1,5 +1,5 @@
 
-export enum ResponseType {
+export enum LineType {
   LINE = "line",
   COMPANY = "company",
   USER = "user",

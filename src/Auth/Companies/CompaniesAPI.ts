@@ -3,15 +3,13 @@ import { Company } from "./Company"
 
 export class CompaniesAPI {
 
-  static getCompanies() {
+  static getAll() {
     return API.request<Company[]>(FetchMethod.GET, `companies`)
   }
 
-  static getCompaniesAndRecipes(user: UserId) {
-    return API.request<Recipe[]>(FetchMethod.GET, `users/${user}/companies-and-recipes`)
-  }
+  static count() {}
 
-  static getCompany<Output = Company>(company: CompanyId) {
+  static getById<Output = Company>(company: CompanyId) {
     return API.request<Output>(FetchMethod.GET, `companies/${company}`)
   }
 

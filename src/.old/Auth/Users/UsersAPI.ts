@@ -40,4 +40,9 @@ export class UsersAPI {
       hash: hash,
     })
   }
+
+  static getCompaniesAndRecipes(user: UserId) {
+    return API.request<Recipe[]>(FetchMethod.GET, `users/${user}/companies-and-recipes`)
+  }
+
 }

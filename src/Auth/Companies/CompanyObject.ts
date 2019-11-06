@@ -1,5 +1,5 @@
 
-export interface CompanyData {
+export interface CompanyObject {
   name: string
   administrators: string[]
 }
