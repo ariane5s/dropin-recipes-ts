@@ -1,4 +1,4 @@
-import { Recipe, RecipeType } from "."
+import { Recipe, RecipeType } from "../Recipes"
 import { Name } from "../../Formats/Name"
 import { CompanyId, CollectionId, DocumentId } from "../API/Responses"
 import { SectionId, ChildrenSection } from "../../Display/Section"

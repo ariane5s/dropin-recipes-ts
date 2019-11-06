@@ -1,4 +1,4 @@
-import { ModelRecipe, RecipeType } from "../../Formats/Models/ModelRecipe"
+import { ModelRecipe, RecipeType } from "../../../Formats/Models/ModelRecipe"
 import { CompanyId } from "./Company"
 
 export interface CompanyRecipeData {

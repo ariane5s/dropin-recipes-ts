@@ -1,18 +1,6 @@
-import { Output } from "../core/types/Outputs"
+import { ModelResponse } from "../../Formats/Models/ModelResponse"
+import { UserId } from "./UserId"
+import { ResponseType } from "../../Context"
+import { UserData } from "./UserData"
 
-export type UserId = string
-
-export interface UserName {
-  firstname: string
-  lastname: string
-}
-
-export interface UserEmail {
-  address: string
-  verified: boolean
-}
-
-export type User = Output<UserId> & {
-  name: string | UserName
-  emails: UserEmail[]
-}
+export type User = ModelResponse<UserId, ResponseType.USER, UserData>

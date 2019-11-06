@@ -1,0 +1,2 @@
+
+export type LineId = string

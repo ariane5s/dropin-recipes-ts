@@ -1,9 +1,6 @@
 import { ModelResponse } from "../../Formats/Models/ModelResponse"
+import { CompanyId } from "./CompanyId"
+import { ResponseType } from "../../Context"
+import { CompanyData } from "./CompanyData"
 
-export type CompanyId = string
-
-export interface CompanyData {
-  name: string
-}
-
-export type Company = ModelResponse<CompanyId, CompanyData>
+export type Company = ModelResponse<CompanyId, ResponseType.COMPANY, CompanyData>

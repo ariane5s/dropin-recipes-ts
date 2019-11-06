@@ -2,6 +2,11 @@ import { RecipeId } from "../../Catalog/Recipes/RecipeRecipe"
 import { CollectionId } from "../Collections/Collection"
 import { API } from "../../Code/API"
 
+export interface LineParams {
+  filters?: string
+  f?: string
+}
+
 export class LinesAPI {
 
   static getLines<Data>(recipe: RecipeId, collection: CollectionId, params: LineParams = {}): Promise<Line<Data>[]> {

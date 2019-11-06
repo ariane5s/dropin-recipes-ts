@@ -1,22 +1,22 @@
+import { RevisionsAPI_Model } from "../../Catalog/Revisions/RevisionsAPI"
 
-export class ModelAPI {
+export type ModelAPI_Create<Entity, Output> = {
+  create: (entity: Entity) => Output
+  createMany: (entities: Entity[]) => Output[]
+}
 
-  static create() {}
+export type ModelAPI_Read<Id, Selector, Output> = {
+  getById: (id: Id) => Output
+  get: (selector: Selector) => Output[]
+  count: (selector: Selector) => number
+}
 
-  static get() {}
+export type ModelAPI_Update<Id, Selector, Output> = {
+  delete: (selector: Selector) => Output
+  deleteById: (id: Id) => Output
+}
 
-  static getById() {}
-
-  static getAll() {}
-
-  static update() {}
-
-  static count() {}
-
-  static remove() {}
-
-  static restore() {}
-
-  static delete() {}
-
+export type ModelAPI_Delete<Id, Selector, Output> = {
+  delete: (selector: Selector) => Output
+  deleteById: (id: Id) => Output
 }
