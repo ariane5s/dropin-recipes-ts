@@ -6,7 +6,9 @@ export type LineId = string
 
 export interface LineParams {
   filters?: string
-  f?: string
+  f?: string,
+  sort_key?: string,
+  sort_type?: string
 }
 
 export type Line<Data = any> = Output<LineId> & {
