@@ -1,12 +1,7 @@
 import { NameText } from "../../Formats/Name"
 import { AllLanguagesSelector } from "../Languages"
 
-export enum Language {
-  ENGLISH = "en",
-  FRENCH = "fr",
-}
 
-export const DEFAULT_LANGUAGE = Language.ENGLISH
 
 export interface LanguageOption {
   name: AllLanguagesSelector<NameText>

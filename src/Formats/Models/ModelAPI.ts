@@ -1,10 +1,10 @@
 
 export type ModelAPI_Create<Entity, Response> = {
-  create: (data: Entity|Entity[]) => Response
+  create: (data: Entity|Entity[]) => Promise<Response>
 }
 
 export type ModelAPI_Get<Id, Entity> = {
-  getById: (id: Id) => Entity
+  getById: (id: Id) => Promise<Entity>
 }
 
 export type ModelAPI_Get_Selector<Selector, Entity> = {

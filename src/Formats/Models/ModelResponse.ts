@@ -1,5 +1,5 @@
 
-export type Entity<Id, Data> = {
+export type ModelResponse<Id, Data> = {
   id: Id
   createdAt: Date
   updatedAt: Date
