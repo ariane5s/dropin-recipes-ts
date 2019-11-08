@@ -16,7 +16,7 @@ export type ModelAPI_Update<Entity, Response> = {
 }
 
 export type ModelAPI_Delete<Id, Response> = {
-  deleteById: (id: Id) => Response
+  delete: (id: Id) => Response
 }
 
 export type ModelAPI_Delete_Selector<Selector, Response> = {

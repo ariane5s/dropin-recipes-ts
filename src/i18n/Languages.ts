@@ -1,12 +1,21 @@
-import { Language } from "../Context/Types/Language"
+import { i18nData } from "../core/Code/i18nData"
+import { NameArticle } from "../core/Formats/Names/Name"
 
-export const i18nLanguages = i18nData({
-  [Language.ENGLISH]: {
-    [Language.ENGLISH]: "English",
-    [Language.FRENCH]: "Anglais",
+export const i18nLanguages: i18nData = {
+
+  name: {
+    en: { one: "Language", many: "Languages" },
+    fr: { one: "Langue", many: "Langues", article: NameArticle.FEMININE },
   },
-  [Language.FRENCH]: {
-    [Language.ENGLISH]: "French",
-    [Language.FRENCH]: "Français",
+
+  en: {
+    en: "English",
+    fr: "Anglais",
   },
-})
+
+  fr: {
+    en: "French",
+    fr: "Français",
+  },
+
+}

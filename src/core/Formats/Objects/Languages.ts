@@ -7,5 +7,11 @@ type XOR<A, B> = (A | B) extends object ? (Without<A, B> & B) | (Without<B, A> &
 export type LanguagesObject<Content, L extends Language = Language> = XOR<{
   [LanguagesAllSelector]: Content
 }, {
+  [language in L]?: Content
+}>
+
+export type LanguagesObject_IncludeAll<Content, L extends Language = Language> = XOR<{
+  [LanguagesAllSelector]: Content
+}, {
   [language in L]: Content
 }>
