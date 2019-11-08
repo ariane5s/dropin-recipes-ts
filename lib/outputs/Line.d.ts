@@ -5,6 +5,8 @@ export declare type LineId = string;
 export interface LineParams {
     filters?: string;
     f?: string;
+    sort_key?: string;
+    sort_type?: string;
 }
 export declare type Line<Data = any> = Output<LineId> & {
     recipe: RecipeId;
