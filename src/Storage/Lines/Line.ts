@@ -1,4 +1,4 @@
-import { ModelResponse } from "../../Formats/Models/ModelResponse"
+import { ModelResponse } from "../../Formats/Models/Responses"
 import { LineId } from "./LineId"
 import { LineData } from "./LineData"
 

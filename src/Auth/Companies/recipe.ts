@@ -1,11 +1,11 @@
-import { ModelRecipe } from "../../Formats/Models/ModelRecipe"
-import { CompanyId } from "./id"
+import { ModelRecipe } from "../../Formats/Models/Recipes"
 import { RecipeType } from "../../Context/Types/RecipeType"
+import { CompanyId, CompanyRecipeData } from "./data"
 
-export interface CompanyRecipeData {
+type Model = ModelRecipe<RecipeType.COMPANY, CompanyId, CompanyRecipeData>
+
+export class CompanyRecipe implements Model {
 
 }
-
-export type CompanyRecipe = ModelRecipe<RecipeType.COMPANY, CompanyId, CompanyRecipeData>
 
 export type CompanyReference = string

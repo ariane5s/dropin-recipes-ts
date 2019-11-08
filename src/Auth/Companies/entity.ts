@@ -1,4 +1,4 @@
-import { ModelEntity } from "../../Formats/Models/ModelEntity"
+import { ModelEntity } from "../../Formats/Models/Entities"
 
 export class Company implements ModelEntity {
 
@@ -12,7 +12,9 @@ export class Company implements ModelEntity {
 
   validate() {}
 
-  save() {}
+  save(callback) {
+    super
+  }
 
   remove() {}
 

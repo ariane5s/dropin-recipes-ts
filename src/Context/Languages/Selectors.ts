@@ -1,5 +1,5 @@
-import { Language } from "./Language"
+import { Language } from "../Types/Language"
 
-export const AllLanguagesSelector = "*"
+export const LanguagesAllSelector = "*"
 
 export type LanguageSelector = "*" | Language

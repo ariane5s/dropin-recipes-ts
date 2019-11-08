@@ -1,7 +1,7 @@
 import { API, FetchMethod } from "../../Code/API"
 import { Company } from "./entity"
-import { ModelAPI_Create, ModelAPI_Get } from "../../Formats/Models/ModelAPI"
-import { CompanyId } from "./id"
+import { ModelAPI_Create, ModelAPI_Get } from "../../Formats/Models/API"
+import { CompanyId } from "./data"
 import { CompanyResponse } from "./response"
 
 type Model  = ModelAPI_Create<CompanyId, CompanyResponse>
@@ -9,13 +9,7 @@ type Model  = ModelAPI_Create<CompanyId, CompanyResponse>
 
 export const CompaniesAPI: Model = {
 
-  create: company => {
-    return API.request<Company>(FetchMethod.PUT, "companies", {}, {
-      name,
-      slug: company,
-      administrators
-    })
-  },
+  create: company => API.request<Company>(FetchMethod.PUT, "companies", {}, company),
 
   getById: companyId => API.request<CompanyResponse>(FetchMethod.GET, `companies/${companyId}`),
 

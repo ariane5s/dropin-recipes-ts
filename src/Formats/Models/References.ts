@@ -1,6 +1,6 @@
 import { UserId } from "../../Auth/Users/UserId"
 import { CompanyId } from "../../Auth/Companies/response"
-import { RecipeId } from "../../Context/Recipes/RecipeId"
+import { RecipeId } from "../../Context/Ids/RecipeId"
 
 export interface ModelReference_Root<Id> {
   id: Id

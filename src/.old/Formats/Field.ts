@@ -1,4 +1,4 @@
-import { Name } from "./Name"
+import { Name } from "../../Formats/Names/Name"
 
 export interface Field<Options = {}> {
   name: Name

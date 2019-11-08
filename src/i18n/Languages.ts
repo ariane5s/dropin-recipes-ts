@@ -1,6 +1,6 @@
-import { Language } from "./Language"
+import { Language } from "../Context/Types/Language"
 
-export const LanguageName = {
+export const i18nLanguages = i18nData({
   [Language.ENGLISH]: {
     [Language.ENGLISH]: "English",
     [Language.FRENCH]: "Anglais",
@@ -9,4 +9,4 @@ export const LanguageName = {
     [Language.ENGLISH]: "French",
     [Language.FRENCH]: "Français",
   },
-}
+})
