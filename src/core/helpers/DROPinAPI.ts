@@ -135,6 +135,13 @@ export class DROPinAPI {
     })
   }
 
+  static createLine(recipe: RecipeId, collection: CollectionId, data: any, version: number) {
+    return this.request<CollectionRecipe>(FetchMethod.PUT, `recipes/${recipe}/collections/${collection}/lines`, {}, {
+      data,
+      version
+    })
+  }
+
   static updateLine(line: LineId, data: any) {
     return this.request<Line>(FetchMethod.POST, `lines/${line}`, {}, {
       data
