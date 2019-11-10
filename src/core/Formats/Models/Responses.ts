@@ -1,7 +1,7 @@
 
-export type ModelResponse<Id, Data> = {
-  id: Id
-  createdAt: Date
-  updatedAt: Date
-  removedAt: null | Date
+export type ModelResponse<Id, Data = any> = {
+  id?: Id
+  createdAt?: Date
+  updatedAt?: Date
+  archivedAt?: Date
 } & Data

@@ -1,7 +1,7 @@
 import { i18nData } from "../core/Code/i18nData"
 import { NameArticle } from "../core/Formats/Names/Name"
 
-export const i18nLanguages: i18nData = {
+export const i18nLanguages = i18nData({
 
   name: {
     en: { one: "Language", many: "Languages" },
@@ -18,4 +18,4 @@ export const i18nLanguages: i18nData = {
     fr: "Français",
   },
 
-}
+})

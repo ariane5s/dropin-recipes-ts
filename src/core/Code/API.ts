@@ -1,4 +1,5 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
+import { ModelResponse } from "../Formats/Models/Responses"
 
 interface FetchInit {
   method: FetchMethod
@@ -15,7 +16,7 @@ enum FetchMethod {
 
 type FetchParams = { [name: string]: string }
 
-type FetchPath = string|string[]
+export type FetchPath = string|string[]
 
 export class API {
   private static URL = "https://dropin.recipes"
@@ -82,18 +83,19 @@ export class API {
     this.TOKEN = token
   }
 
-  static create<Entity>(path: FetchPath, entity: Entity) {
-    return this.request<"">(FetchMethod.PUT, path, {}, entity)
+  static create<Id extends string, Data extends ModelResponse<Id>>(path: FetchPath, data: Data) {
+    if(typeof data.id !== "undefined") return Promise.reject("Id already exists")
+    return this.request<"">(FetchMethod.PUT, path, {}, data)
   }
 
-  static get<Entity>(path: FetchPath, selector?: string) {
+  static getById<Id extends string, Data extends ModelResponse<Id>>(path: FetchPath, id: Id) {
+    return this.request<Data>(FetchMethod.GET, this.convertPath(path, id))
+  }
+
+  static get<Id extends string, Data extends ModelResponse<Id>>(path: FetchPath, selector?: string) {
     let params: FetchParams = {}
     if(typeof selector !== "undefined") params.s = selector
-    return this.request<Entity[]>(FetchMethod.GET, path, params)
-  }
-
-  static getById<Entity, Id extends string>(path: FetchPath, id: Id) {
-    return this.request<Entity>(FetchMethod.GET, this.convertPath(path, id))
+    return this.request<Data[]>(FetchMethod.GET, path, params)
   }
 
   static count(path: FetchPath, selector?: string) {
@@ -102,8 +104,9 @@ export class API {
     return this.request<number>(FetchMethod.GET, this.convertPath(path, "count"), params)
   }
 
-  static update<Entity>(path: FetchPath, entity: Entity) {
-    return this.request<"">(FetchMethod.POST, path, {}, entity)
+  static update<Id extends string, Data extends ModelResponse<Id>>(path: FetchPath, entity: Data) {
+    if(typeof entity.id === "undefined") return Promise.reject("Id not found")
+    return this.request<"">(FetchMethod.POST, this.convertPath(path, entity.id), {}, entity)
   }
 
   static archive<Id extends string>(path: FetchPath, id: Id) {
@@ -114,12 +117,12 @@ export class API {
     return this.request<"">(FetchMethod.POST, this.convertPath(path, [ id, "unarchive" ]))
   }
 
-  static delete(path: FetchPath, selector: string) {
-    return this.request<"">(FetchMethod.DELETE, path, { s: selector })
-  }
-
   static deleteById<Id extends string>(path: FetchPath, id: Id) {
     return this.request<"">(FetchMethod.DELETE, this.convertPath(path, id))
+  }
+
+  static delete(path: FetchPath, selector: string) {
+    return this.request<"">(FetchMethod.DELETE, path, { s: selector })
   }
 
 }

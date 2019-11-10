@@ -1,8 +1,17 @@
-import { ModelEntity } from "../../Formats/Models/Entities"
-import { CompaniesAPI } from "./api"
-import { CompanyId } from "./data"
+import { ModelEntity } from "../../Formats/Models/Entity"
+import { CompanyId, CompanyData } from "./data"
+import { Name } from "../../Formats/Names/Name"
+import { ModelResponse } from "../../Formats/Models/Responses"
 
-export class Company implements ModelEntity<CompanyId> {
+export class Company extends ModelEntity<CompanyId, CompanyData> implements CompanyData {
+  name: Name
+  administrators: string[]
+
+  constructor(data: ModelResponse<CompanyId, CompanyData>) {
+    super(data)
+    this.name = data.name
+    this.administrators = data.administrators
+  }
 
   getRecipes() {}
 
@@ -14,9 +23,7 @@ export class Company implements ModelEntity<CompanyId> {
 
   validate() {}
 
-  save(callback) {
-    CompaniesAPI.create()
-  }
+  save() {}
 
   remove() {}
 

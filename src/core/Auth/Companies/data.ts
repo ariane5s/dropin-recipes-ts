@@ -2,7 +2,7 @@ import { Name } from "../../Formats/Names/Name"
 
 export type CompanyId = string
 
-export interface CompanyRecipeData {
+export interface CompanyData {
   name: Name
   administrators: string[]
 }
@@ -11,11 +11,8 @@ export const CompanyValidator = () => {
 
 }
 
-export interface CompanyResponseData {
-  name: Name
-  administrators: string[]
+export interface CompanyRecipeData {
 }
 
 export const CompanyRecipeValidator = () => {
-
 }
