@@ -8,6 +8,7 @@ export interface i18nOptions {
   count?: number
   vars?: i18nVars
   lowercase?: boolean
+  article?: boolean
 }
 
 export function i18n(name: Name, options: i18nOptions = {}) {
