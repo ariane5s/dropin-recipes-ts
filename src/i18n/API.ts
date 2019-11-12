@@ -1,4 +1,4 @@
-import { i18nData } from "../core/Code/i18nData"
+import { i18nData } from "../core/Formats/Models/i18n"
 
 export type i18nAPI_Create = { name: string }
 

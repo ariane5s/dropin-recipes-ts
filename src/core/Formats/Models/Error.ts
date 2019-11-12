@@ -9,7 +9,7 @@ export class Error {
   context?: string|string[]
   constructor(message: string, type?: ErrorType, context?: string|string[]) {
     this.message = message
-    this.type = type
-    this.context = context
+    if(typeof type !== "undefined") this.type = type
+    if(typeof context !== "undefined") this.context = context
   }
 }

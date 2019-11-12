@@ -3,8 +3,8 @@ import { LanguagesObject } from "../Objects/Languages"
 export type NameText = string | string[]
 
 export enum NameArticle {
-  MASCULINE = "m",
-  FEMININE = "f",
+  MASULINE, // LE, UN, LES, DES, L'
+  FEMININE, // LA, UNE, LES, DES, L'
 }
 
 export interface NameByNumber {
