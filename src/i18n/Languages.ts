@@ -1,6 +1,5 @@
-import { i18nData, i18nFunction } from "../core/Formats/Models/i18n"
-import { NameArticle, Name } from "../core/Formats/Names/Name"
-import { i18n, i18nOptions } from "../core/Code/i18n"
+import { i18nData } from "../core/Formats/Models/i18n"
+import { NameArticle } from "../core/Formats/Names/Name"
 import { Language } from "../core/Context/Types/Language"
 
 export const i18nLanguages = i18nData({
@@ -10,10 +9,16 @@ export const i18nLanguages = i18nData({
     fr: { one: "Langue", many: "Langues", article: NameArticle.FEMININE },
   },
 
-  current: i18nFunction<{ language: Language }>(vars => ({
-    en: [ "The current language is ", i18n(i18nLanguages[vars.language]) ],
-    fr: [ "La langue actuelle est ", i18n(i18nLanguages[vars.language], { article: true }) ],
-  })),
+  current: (language: Language): i18nData => ({
+    en: [
+      "The current language is ",
+      { $: { type: "i18n", name: i18nLanguages[language] } }
+    ],
+    fr: [
+      "La langue actuelle est ",
+      { $: { type: "i18n", name: i18nLanguages[language], options: { article: true } } },
+    ],
+  }),
 
   en: {
     en: "English",
