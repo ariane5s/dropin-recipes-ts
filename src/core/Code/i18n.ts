@@ -1,12 +1,10 @@
-import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle,  } from "../Formats/Names/Name"
+import { i18nData, i18nOptions, i18nArticle } from "../Formats/Models/i18n"
+import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle } from "../Formats/Names/Name"
 import { i18nQuery } from "../Formats/Queries/i18n"
-import { i18nOptions } from "../Formats/Models/i18n"
 import { Language } from "../Context/Types/Language"
 import { i18nSettings } from "./i18nSettings"
 
-const FRENCH_VOWELS = [ "a", "e", "i", "o", "u", "y" ]
-
-export const i18n = (data: NameTextOrQuery | NameByLanguage<NameTextOrQuery>, options: i18nOptions = {}): string => {
+export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
 
   // STRING
   if(typeof data === "string") {
@@ -36,7 +34,6 @@ export const i18n = (data: NameTextOrQuery | NameByLanguage<NameTextOrQuery>, op
       || dataAsQuery.$.type !== "i18n"
       || typeof dataAsQuery.$.name === "undefined"
     ) {
-      console.log(typeof dataAsQuery.$ !== "object" || typeof dataAsQuery.$.type !== "undefined" || dataAsQuery.$.type !== "i18n" || typeof dataAsQuery.$.name !== "undefined")
       return ""
     }
     let queryOptions: i18nOptions
@@ -92,8 +89,12 @@ export const i18n = (data: NameTextOrQuery | NameByLanguage<NameTextOrQuery>, op
   let secondDepth = languageDepth as NameByNumber<NameTextOrQuery>
   let output: string = ""
 
+  if(typeof options.count === "undefined") {
+    options.count = 1
+  }
+
   // One
-  if(typeof secondDepth.one !== "undefined" && (typeof options.count === "undefined" || options.count === 1)) {
+  if(typeof secondDepth.one !== "undefined" && options.count === 1) {
     output = i18n(secondDepth.one, options)
 
   // Many
@@ -101,23 +102,55 @@ export const i18n = (data: NameTextOrQuery | NameByLanguage<NameTextOrQuery>, op
     output = i18n(secondDepth.many, options)
   }
 
-  if(output.length !== 0) {
-
-    // Article
-    if(typeof options.article !== "undefined" && options.article && typeof currentLanguage !== "undefined") {
-      switch(currentLanguage) {
-        case Language.FRENCH:
-          if(FRENCH_VOWELS.indexOf(output[0].toLowerCase()) !== -1) {
-            output = "l'" + output
-          } else if(typeof secondDepth.article !== "undefined") {
-            if(secondDepth.article === NameArticle.FR_MAS) {
-              output = "le " + output
+  // Articles
+  if(typeof options.article !== "undefined" && options.article && typeof currentLanguage !== "undefined") {
+    switch(currentLanguage) {
+      case Language.FRENCH:
+        switch(options.article as i18nArticle) {
+          case i18nArticle.FR_IND:
+            if(options.count !== 1) {
+              output = "des " + output
+            } else if(secondDepth.article === NameArticle.FR_FEM || secondDepth.article === NameArticle.FR_FEM_CNT) {
+              output = "une " + output
+            } else {
+              output = "un " + output
+            }
+            break
+          case i18nArticle.FR_DEF:
+            if(options.count !== 1) {
+              output = "les " + output
+            } else if(secondDepth.article === NameArticle.FR_MAS_CNT || secondDepth.article === NameArticle.FR_FEM_CNT) {
+              output = "l'" + output
             } else if(secondDepth.article === NameArticle.FR_FEM) {
               output = "la " + output
+            } else {
+              output = "le " + output
             }
-          }
-          break
-      }
+            break
+          case i18nArticle.FR_DEF_CNT:
+            if(options.count !== 1) {
+              output = "aux " + output
+            } else if(secondDepth.article === NameArticle.FR_MAS_CNT || secondDepth.article === NameArticle.FR_FEM_CNT) {
+              output = "à l'" + output
+            } else if(secondDepth.article === NameArticle.FR_FEM) {
+              output = "à la " + output
+            } else {
+              output = "au " + output
+            }
+            break
+          case i18nArticle.FR_PAR:
+            if(options.count !== 1) {
+              output = "des " + output
+            } else if(secondDepth.article === NameArticle.FR_MAS_CNT || secondDepth.article === NameArticle.FR_FEM_CNT) {
+              output = "de l'" + output
+            } else if(secondDepth.article === NameArticle.FR_FEM) {
+              output = "de la " + output
+            } else {
+              output = "du " + output
+            }
+            break
+        }
+        break
     }
 
   }

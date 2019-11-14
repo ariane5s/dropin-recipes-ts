@@ -5,7 +5,7 @@ import { TextFieldValidator } from "../Formats/Fields"
 
 type SchemaObjectByName = { [name: string]: SchemaObject | SchemaObjectByName }
 
-export const Validator = <Data extends any = any>(data: Data, schema: SchemaObject | SchemaObjectByName, context?: string|string[]): Promise<Error[]> => {
+export const v7r = <Data extends any = any>(data: Data, schema: SchemaObject | SchemaObjectByName, context?: string|string[]): Promise<Error[]> => {
   if(typeof schema !== "object") {
     return Promise.resolve([ new Error(`Schema must be an object`, ErrorType.MISSING_DATA, context) ])
   }
@@ -36,7 +36,7 @@ export const Validator = <Data extends any = any>(data: Data, schema: SchemaObje
       }
     }
 
-    return Validator(data[schemaKey], (schema as SchemaObjectByName)[schemaKey], childContext).then(errors => {
+    return v7r(data[schemaKey], (schema as SchemaObjectByName)[schemaKey], childContext).then(errors => {
       list.push.apply(list, errors)
       return list
     })

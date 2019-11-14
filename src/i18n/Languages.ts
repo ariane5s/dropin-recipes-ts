@@ -1,4 +1,4 @@
-import { i18nData } from "../core/Formats/Models/i18n"
+import { i18nData, i18nArticle } from "../core/Formats/Models/i18n"
 import { NameArticle } from "../core/Formats/Names/Name"
 import { Language } from "../core/Context/Types/Language"
 
@@ -16,7 +16,7 @@ export const i18nLanguages = i18nData({
     ],
     fr: [
       "La langue actuelle est ",
-      { $: { type: "i18n", name: i18nLanguages[language], options: { article: true } } },
+      { $: { type: "i18n", name: i18nLanguages[language], options: { article: i18nArticle.FR_DEF } } },
     ],
   }),
 
