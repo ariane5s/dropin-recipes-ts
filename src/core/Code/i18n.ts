@@ -1,20 +1,12 @@
-import { NameByNumber, Name, NameArticle, NameByLanguage, NameTextOrQuery } from "../Formats/Names/Name"
+import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle,  } from "../Formats/Names/Name"
+import { i18nQuery } from "../Formats/Queries/i18n"
+import { i18nOptions } from "../Formats/Models/i18n"
 import { Language } from "../Context/Types/Language"
 import { i18nSettings } from "./i18nSettings"
-import { i18nData } from "../Formats/Models/i18n"
-import { i18nQuery } from "../Formats/Queries/i18n"
 
-export type i18nVars = { [name: string]: string }
+const FRENCH_VOWELS = [ "a", "e", "i", "o", "u", "y" ]
 
-export interface i18nOptions<Vars = i18nVars> {
-  count?: number
-  vars?: Vars
-  lowercase?: boolean
-  article?: boolean
-  language?: Language
-}
-
-export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
+export const i18n = (data: NameTextOrQuery | NameByLanguage<NameTextOrQuery>, options: i18nOptions = {}): string => {
 
   // STRING
   if(typeof data === "string") {
@@ -22,100 +14,114 @@ export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
     if(typeof options.lowercase !== "undefined" && options.lowercase) {
       data = data.toLowerCase()
     }
-    console.log("D", data)
     return data
   }
 
-  // OBJECT
-  if(typeof data === "object") {
+  // NOT AN OBJECT
+  if(typeof data !== "object") {
+    return ""
+  }
 
-    // ARRAY
-    if(Array.isArray(data)) {
-      console.log("B", data)
-      return data.map(current => i18n(current, options)).join("")
+  // ARRAY
+  if(Array.isArray(data)) {
+    return data.map(current => i18n(current, options)).join("")
+  }
+
+  // QUERY
+  const dataAsQuery = data as i18nQuery
+  if(typeof dataAsQuery.$ !== "undefined") {
+    if(
+      typeof dataAsQuery.$ !== "object"
+      || typeof dataAsQuery.$.type === "undefined"
+      || dataAsQuery.$.type !== "i18n"
+      || typeof dataAsQuery.$.name === "undefined"
+    ) {
+      console.log(typeof dataAsQuery.$ !== "object" || typeof dataAsQuery.$.type !== "undefined" || dataAsQuery.$.type !== "i18n" || typeof dataAsQuery.$.name !== "undefined")
+      return ""
     }
-
-    // QUERY
-    if(typeof (data as i18nQuery).$ !== "undefined") {
-      let newOptions: i18nOptions
-      if(typeof (data as i18nQuery).$.options !== "undefined") {
-        newOptions = Object.assign(options, (data as i18nQuery).$.options)
-      } else {
-        newOptions = options
-      }
-      return i18n((data as i18nQuery).$.name, newOptions)
+    let queryOptions: i18nOptions
+    if(typeof dataAsQuery.$.options === "object") {
+      queryOptions = Object.assign(options, dataAsQuery.$.options)
+    } else {
+      queryOptions = options
     }
+    return i18n(dataAsQuery.$.name, queryOptions)
+  }
 
-    // LANGUAGE NAME
-    let firstDepth, currentLanguage
+  // LANGUAGE NAME
+  const dataByLanguage = data as NameByLanguage<NameTextOrQuery>
+  let currentLanguage: Language | null = null
+  let languageDepth: NameTextOrQuery | null = null
 
-    // Options language
-    if(typeof options.language !== "undefined" && typeof (data as NameByLanguage<i18nQuery>)[options.language] !== "undefined") {
-      currentLanguage = options.language
-      firstDepth = (data as NameByLanguage<i18nQuery>)[currentLanguage]
+  // Options language
+  if(typeof options.language !== "undefined" && typeof dataByLanguage[options.language] !== "undefined") {
+    currentLanguage = options.language
+    languageDepth = dataByLanguage[currentLanguage] as NameTextOrQuery
 
-    // Global text is set
-    } else if(typeof (data as NameByLanguage<i18nQuery>)["*"] !== "undefined") {
-      firstDepth = (data as NameByLanguage<i18nQuery>)["*"]
+  // Global Name text
+  } else if(typeof dataByLanguage["*"] !== "undefined") {
+    languageDepth = dataByLanguage["*"] as NameTextOrQuery
 
-    // Default language
-    } else if(typeof (data as NameByLanguage<i18nQuery>)[i18nSettings.getCurrentLanguage()] !== "undefined") {
-      currentLanguage = i18nSettings.getCurrentLanguage()
-      firstDepth = (data as NameByLanguage<i18nQuery>)[currentLanguage]
-    }
+  // Default language
+  } else if(typeof dataByLanguage[i18nSettings.getCurrentLanguage()] !== "undefined") {
+    currentLanguage = i18nSettings.getCurrentLanguage()
+    languageDepth = dataByLanguage[currentLanguage] as NameTextOrQuery
+  }
 
-    // STRING
-    if(typeof firstDepth === "string") {
-      return i18n(firstDepth, options)
-    }
+  // NO LANGUAGE DATA FOUND
+  if(languageDepth === null) {
+    return ""
+  }
 
-    // OBJECT
-    if(typeof firstDepth === "object") {
+  // STRING
+  if(typeof languageDepth === "string") {
+    return i18n(languageDepth, options)
+  }
 
-      // ARRAY OR QUERY
-      if(Array.isArray(firstDepth) || typeof (firstDepth as i18nQuery).$ !== "undefined") {
-        console.log("A", firstDepth)
-        return i18n(firstDepth as NameTextOrQuery, options)
-      }
+  // NOT AN OBJECT
+  if(typeof languageDepth !== "object") {
+    return ""
+  }
 
-      // NUMBER NAME
-      let secondDepth = firstDepth as NameByNumber, output: string = ""
+  // ARRAY OR QUERY
+  if(Array.isArray(languageDepth) || typeof languageDepth.$ !== "undefined") {
+    return i18n(languageDepth, options)
+  }
 
-      // One
-      if((typeof options.count === "undefined" || options.count === 1) && typeof secondDepth.one !== "undefined") {
-        output = i18n(secondDepth.one, options)
+  // NUMBER NAME
+  let secondDepth = languageDepth as NameByNumber<NameTextOrQuery>
+  let output: string = ""
 
-      // Many
-      } else if(typeof secondDepth.many !== "undefined") {
-        output = i18n(secondDepth.many, options)
-      }
+  // One
+  if(typeof secondDepth.one !== "undefined" && (typeof options.count === "undefined" || options.count === 1)) {
+    output = i18n(secondDepth.one, options)
 
-      if(output.length !== 0) {
+  // Many
+  } else if(typeof secondDepth.many !== "undefined") {
+    output = i18n(secondDepth.many, options)
+  }
 
-        // Article
-        if(typeof options.article !== "undefined"
-          && typeof currentLanguage !== "undefined"
-          && options.article
-          && typeof secondDepth.article !== "undefined"
-        ) {
-          switch(currentLanguage) {
-            case Language.FRENCH:
-              if(secondDepth.article === NameArticle.MASULINE) {
-                output = "le " + output
-              } else if(secondDepth.article === NameArticle.FEMININE) {
-                output = "la " + output
-              }
-              break
+  if(output.length !== 0) {
+
+    // Article
+    if(typeof options.article !== "undefined" && options.article && typeof currentLanguage !== "undefined") {
+      switch(currentLanguage) {
+        case Language.FRENCH:
+          if(FRENCH_VOWELS.indexOf(output[0].toLowerCase()) !== -1) {
+            output = "l'" + output
+          } else if(typeof secondDepth.article !== "undefined") {
+            if(secondDepth.article === NameArticle.FR_MAS) {
+              output = "le " + output
+            } else if(secondDepth.article === NameArticle.FR_FEM) {
+              output = "la " + output
+            }
           }
-        }
-
-        return output
-
+          break
       }
-
     }
 
   }
 
-  return ""
+  return output
+
 }

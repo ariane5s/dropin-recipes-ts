@@ -1,9 +1,21 @@
-import { NameByLanguage, NameTextOrQuery } from "../Names/Name"
+import { Language } from "../../Context/Types/Language"
+import { NameTextOrQuery, NameByLanguage } from "../Names/Name"
 
-export type i18nData = NameTextOrQuery | NameByLanguage<NameTextOrQuery>
+export enum i18nArticle {
+  FR_DEF,
+  FR_IND,
+}
 
-type i18nDataFunction = (...params: any[]) => i18nData
+export interface i18nOptions<Vars = { [name: string]: string }> {
+  count?: number
+  vars?: Vars
+  lowercase?: boolean
+  article?: boolean
+  language?: Language
+}
 
-type i18nDataType = { [name: string]: i18nData | i18nDataFunction }
+type i18nDataFunction = (...params: any[]) => NameTextOrQuery | NameByLanguage<NameTextOrQuery>
+
+type i18nDataType = { [name: string]: NameTextOrQuery | NameByLanguage<NameTextOrQuery> | i18nDataFunction }
 
 export const i18nData = <Type = i18nDataType>(data: Type): Type => data

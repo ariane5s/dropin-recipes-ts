@@ -5,17 +5,17 @@ export const i18nUsers = i18nData({
 
   name: {
     en: { one: "User", many: "Users" },
-    fr: { one: "Utilisateur", many: "Utilisateurs", article: NameArticle.MASCULINE },
+    fr: { one: "Utilisateur", many: "Utilisateurs", article: NameArticle.FR_MAS },
   },
 
   email: {
     en: { one: "E-mail address", many: "E-mail addresses" },
-    fr: { one: "Adresse e-mail", many: "Adresses e-mail", article: NameArticle.FEMININE },
+    fr: { one: "Adresse e-mail", many: "Adresses e-mail", article: NameArticle.FR_FEM },
   },
 
   password: {
     en: { one: "Password", many: "Passwords" },
-    fr: { one: "Mot de passe", many: "Mots de passe", article: NameArticle.MASCULINE },
+    fr: { one: "Mot de passe", many: "Mots de passe", article: NameArticle.FR_MAS },
   },
 
   register: {

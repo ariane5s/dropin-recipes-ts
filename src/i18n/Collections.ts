@@ -5,7 +5,7 @@ export const i18nCollections = i18nData({
 
   name: {
     en: { one: "Collection", many: "Collections" },
-    fr: { one: "Collection", many: "Collections", article: NameArticle.FEMININE },
+    fr: { one: "Collection", many: "Collections", article: NameArticle.FR_FEM },
   },
 
 })

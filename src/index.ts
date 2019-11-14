@@ -22,4 +22,4 @@ Validator({ a: 2 }, { a: { type: "text" } }).then(errors => {
   console.log("test4", errors)
 })*/
 
-console.log(i18n(i18nLanguages.current(Language.ENGLISH), { language: Language.ENGLISH }))
+console.log(i18n(i18nLanguages.current(Language.ENGLISH), { language: Language.FRENCH }))

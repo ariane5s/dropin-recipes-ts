@@ -6,7 +6,7 @@ export const i18nLanguages = i18nData({
 
   name: {
     en: { one: "Language", many: "Languages" },
-    fr: { one: "Langue", many: "Langues", article: NameArticle.FEMININE },
+    fr: { one: "Langue", many: "Langues", article: NameArticle.FR_FEM },
   },
 
   current: (language: Language): i18nData => ({
@@ -22,12 +22,12 @@ export const i18nLanguages = i18nData({
 
   en: {
     en: "English",
-    fr: { one: "Anglais", article: NameArticle.MASULINE }
+    fr: { one: "Anglais", article: NameArticle.FR_MAS_CNT }
   },
 
   fr: {
     en: "French",
-    fr: { one: "Français", article: NameArticle.MASULINE },
+    fr: { one: "Français", article: NameArticle.FR_MAS },
   },
 
 })
