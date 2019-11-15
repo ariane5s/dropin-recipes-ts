@@ -1,5 +1,4 @@
-import { ModelResponse } from "./Responses"
-import { Name } from "../Names/Name"
+import { ModelResponse } from "./Response"
 
 export class ModelEntity<Id, Data> implements ModelResponse<Id> {
   id?: Id

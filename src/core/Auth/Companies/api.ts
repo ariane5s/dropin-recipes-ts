@@ -1,4 +1,4 @@
-import { ModelResponse } from "../../Formats/Models/Responses"
+import { ModelResponse } from "../../Formats/Models/Response"
 import { CompanyId, CompanyData } from "./data"
 import { Company } from "./entity"
 import { API } from "../../Code/API"

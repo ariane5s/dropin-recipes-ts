@@ -1,7 +1,7 @@
 import { i18nData, i18nArticle } from "../Formats/Models/i18n"
 import { i18nOptions, i18nQuery } from "../Formats/Queries/i18n"
 import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle } from "../Formats/Names/Name"
-import { Language } from "../Context/Types/Language"
+import { Language } from "../Context/Language"
 import { i18nSettings } from "./i18nSettings"
 
 export const i18n = (data: i18nData, options: i18nOptions = {}): string => {

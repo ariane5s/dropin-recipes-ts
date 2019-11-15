@@ -1,4 +1,4 @@
-import { Environment } from "../Context/Types/Environment"
+import { Environment } from "../Context/Environment"
 import { l4r } from "./l4r"
 import { i18n } from "./i18n"
 import { i18nLogger } from "../../i18n/Logger"

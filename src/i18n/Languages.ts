@@ -1,6 +1,6 @@
 import { i18nData, i18nArticle } from "../core/Formats/Models/i18n"
 import { NameArticle } from "../core/Formats/Names/Name"
-import { Language } from "../core/Context/Types/Language"
+import { Language } from "../core/Context/Language"
 
 export const i18nLanguages = i18nData({
 

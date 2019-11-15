@@ -1,7 +1,7 @@
 import { ModelEntity } from "../../Formats/Models/Entity"
-import { CompanyId, CompanyData } from "./data"
+import { CompanyId, CompanyData, v7rCompany } from "./data"
 import { Name } from "../../Formats/Names/Name"
-import { ModelResponse } from "../../Formats/Models/Responses"
+import { ModelResponse } from "../../Formats/Models/Response"
 
 export class Company extends ModelEntity<CompanyId, CompanyData> implements CompanyData {
   name: Name
@@ -21,11 +21,16 @@ export class Company extends ModelEntity<CompanyId, CompanyData> implements Comp
 
   getRevisions() {}
 
-  validate() {}
+  validate() {
+    return v7rCompany(this)
+  }
 
   save() {}
 
-  remove() {}
+  archive() {
+  }
+
+  unarchive() {}
 
   delete() {}
 

@@ -1,6 +1,6 @@
 import { i18n } from "./core/Code/i18n"
 import { i18nLanguages } from "./i18n"
-import { Language } from "./core/Context/Types/Language"
+import { Language } from "./core/Context/Language"
 
 /*Validator("test1", { type: "text" }).then(errors => {
   console.log("test1", errors)

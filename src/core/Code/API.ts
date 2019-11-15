@@ -1,5 +1,5 @@
 import nodeFetch, { Response as NodeFetchResponse } from "node-fetch"
-import { ModelResponse } from "../Formats/Models/Responses"
+import { ModelResponse } from "../Formats/Models/Response"
 
 interface FetchInit {
   method: FetchMethod

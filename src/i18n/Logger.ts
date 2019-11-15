@@ -1,7 +1,5 @@
-import { i18nData, i18nArticle } from "../core/Formats/Models/i18n"
-import { NameArticle } from "../core/Formats/Names/Name"
-import { Language } from "../core/Context/Types/Language"
-import { Environment } from "../core/Context/Types/Environment"
+import { i18nData } from "../core/Formats/Models/i18n"
+import { Environment } from "../core/Context/Environment"
 import { i18nEnvironments } from "./Environments"
 
 export const i18nLogger = i18nData({
@@ -29,6 +27,5 @@ export const i18nLogger = i18nData({
       { $: { type: "i18n", name: i18nEnvironments[mode] } },
     ],
   }),
-
 
 })
