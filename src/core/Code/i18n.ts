@@ -1,6 +1,6 @@
-import { i18nData, i18nOptions, i18nArticle } from "../Formats/Models/i18n"
+import { i18nData, i18nArticle } from "../Formats/Models/i18n"
+import { i18nOptions, i18nQuery } from "../Formats/Queries/i18n"
 import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle } from "../Formats/Names/Name"
-import { i18nQuery } from "../Formats/Queries/i18n"
 import { Language } from "../Context/Types/Language"
 import { i18nSettings } from "./i18nSettings"
 

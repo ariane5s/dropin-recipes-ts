@@ -1,29 +1,31 @@
-import { Error, ErrorType } from "../Formats/Models/Error"
+import { Error } from "../Formats/Models/Error"
+import { ErrorType } from "../Context/Types/ErrorType"
 import { SchemaObject } from "../Formats/Objects/Schema"
 import { FieldType } from "../Context/Types/FieldType"
 import { TextFieldValidator } from "../Formats/Fields"
+import { i18nValidator } from "../../i18n/Validator"
 
 type SchemaObjectByName = { [name: string]: SchemaObject | SchemaObjectByName }
 
 export const v7r = <Data extends any = any>(data: Data, schema: SchemaObject | SchemaObjectByName, context?: string|string[]): Promise<Error[]> => {
   if(typeof schema !== "object") {
-    return Promise.resolve([ new Error(`Schema must be an object`, ErrorType.MISSING_DATA, context) ])
+    return Promise.resolve([ new Error(i18nValidator.schemaMustBeAnObject, ErrorType.INCOMPATIBLE, context) ])
   }
 
   if(typeof schema.type === "string") {
     switch(schema.type) {
       case FieldType.TEXT: return TextFieldValidator<Data>(data, context).then(error => typeof error !== "undefined" ? [ error ] : [])
-      default: return Promise.resolve([ new Error(`Type "${schema.type}" does not exist`, ErrorType.MISSING_DATA, context) ])
+      default: return Promise.resolve([ new Error(i18nValidator.typeNotFound(schema.type), ErrorType.INCOMPLETE, context) ])
     }
   }
 
   if(typeof data !== "object") {
-    return Promise.resolve([ new Error(`Data is not an object`, ErrorType.MISSING_DATA, context) ])
+    return Promise.resolve([ new Error(i18nValidator.dataIsNotAnObject, ErrorType.INCOMPATIBLE, context) ])
   }
 
   return Object.keys(schema).reduce((promise, schemaKey) => promise.then(list => {
     if(typeof data[schemaKey] === "undefined") {
-      list.push(new Error(`No data found for key ${schemaKey}`, ErrorType.MISSING_DATA, context))
+      list.push(new Error(i18nValidator.noDataFoundForKey(schemaKey), ErrorType.UNFINDABLE, context))
       return list
     }
 
@@ -45,7 +47,7 @@ export const v7r = <Data extends any = any>(data: Data, schema: SchemaObject | S
     const schemaKeys = Object.keys(schema)
     Object.keys(data).forEach(dataKey => {
       if(schemaKeys.indexOf(dataKey) === -1) {
-        errors.push(new Error(`Unexpected key "${dataKey}"`, ErrorType.MISSING_DATA, context))
+        errors.push(new Error(i18nValidator.unexpectedKey(dataKey), ErrorType.UNEXPECTED, context))
       }
     })
     return errors

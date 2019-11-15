@@ -3,8 +3,7 @@ import { FieldType } from "../../Context/Types/FieldType"
 import { SchemaObject } from "../../Formats/Objects/Schema"
 
 export type NameFieldOptions = Field_LengthOptions & {
-  fullName?: boolean
-  middleName?: boolean
+  person?: { fullName?: boolean, middleName?: boolean }
 }
 
 export type NameField = Field<FieldType.NAME, NameFieldOptions>

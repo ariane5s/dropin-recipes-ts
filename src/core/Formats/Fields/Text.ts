@@ -1,6 +1,8 @@
 import { Field_LengthOptions, Field } from "../Models/Field"
 import { FieldType } from "../../Context/Types/FieldType"
-import { Error, ErrorType } from "../Models/Error"
+import { Error } from "../Models/Error"
+import { i18nValidator } from "../../../i18n/Validator"
+import { ErrorType } from "../../Context/Types/ErrorType"
 
 export type TextFieldOptions = Field_LengthOptions & {
   lines?: number
@@ -9,6 +11,8 @@ export type TextFieldOptions = Field_LengthOptions & {
 export type TextField = Field<FieldType.TEXT, TextFieldOptions>
 
 export const TextFieldValidator = <Data extends any = any>(data: Data, context?: string|string[]): Promise<Error|void> => {
-  if(typeof data !== "string") return Promise.resolve(new Error(`Data must be a string`, ErrorType.MISSING_DATA, context))
+  if(typeof data !== "string") {
+    return Promise.resolve(new Error(i18nValidator.dataMustBeAString, ErrorType.INCOMPATIBLE, context))
+  }
   return Promise.resolve()
 }
