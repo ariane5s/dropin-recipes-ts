@@ -4,6 +4,7 @@ import { SchemaObject } from "../Objects/Schema"
 
 export type ListFieldOptions = {
   todo?: boolean
+  children?: ListField
 }
 
 export type ListField = Field<FieldType.LIST, ListFieldOptions>

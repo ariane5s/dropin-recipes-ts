@@ -7,9 +7,9 @@ export class ModelEntity<Id, Data> implements ModelResponse<Id> {
   archivedAt?: Date
 
   constructor(data: ModelResponse<Id, Data>) {
-    this.id = data.id
-    this.createdAt = data.createdAt
-    this.updatedAt = data.updatedAt
-    this.archivedAt = data.archivedAt
+    if(typeof data.id !== "undefined") this.id = data.id
+    if(typeof data.createdAt !== "undefined") this.createdAt = data.createdAt
+    if(typeof data.updatedAt !== "undefined") this.updatedAt = data.updatedAt
+    if(typeof data.archivedAt !== "undefined") this.archivedAt = data.archivedAt
   }
 }

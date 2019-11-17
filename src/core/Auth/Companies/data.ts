@@ -13,7 +13,7 @@ export interface CompanyData {
 
 export const v7rCompany = (data: CompanyResponse|Company) => v7r<CompanyResponse|Company>(data, {
   name: { type: "name", options: { required: true } },
-  administrators: { type: "list", options: { children: { type: "string" } } },
+  administrators: { type: "list", options: {} },
 }, [ "v7r", "company", "entity" ])
 
 export interface CompanyRecipeData {

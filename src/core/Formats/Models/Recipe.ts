@@ -1,24 +1,18 @@
 import { RecipeType } from "../../Context/Types/RecipeType"
 import { PathObject } from "../Objects/Path"
 
-interface ModelRecipeHeader<Type extends RecipeType, Id> {
+export type ModelRecipeData<Type extends RecipeType, Id, Data> = {
   apiVersion: number
   type: Type
   id: Id
-}
+} & Data
 
-export type ModelRecipeData<Type extends RecipeType, Id, Data> = ModelRecipeHeader<Type, Id> & Data
-
-export class ModelRecipe<Type extends RecipeType, Id, Data> implements ModelRecipeHeader<Type, Id> {
+export class ModelRecipe<Type extends RecipeType, Id, Data> {
   path: PathObject
-  apiVersion: number
-  type: Type
-  id: Id
+  data: ModelRecipeData<Type, Id, Data>
 
   constructor(path: PathObject, data: ModelRecipeData<Type, Id, Data>) {
     this.path = path
-    this.apiVersion = data.apiVersion
-    this.type = data.type
-    this.id = data.id
+    this.data = data
   }
 }

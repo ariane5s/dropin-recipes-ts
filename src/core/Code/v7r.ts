@@ -1,13 +1,11 @@
+import { v7rSchema, v7rSchemaObjectByName } from "../Formats/Models/v7r"
 import { Error } from "../Formats/Models/Error"
 import { ErrorType } from "../Context/Types/ErrorType"
-import { SchemaObject } from "../Formats/Objects/Schema"
 import { FieldType } from "../Context/Types/FieldType"
-import { TextFieldValidator } from "../Formats/Fields"
 import { i18nValidator } from "../../i18n/Validator"
+import { TextFieldValidator } from "../Formats/Fields"
 
-type SchemaObjectByName = { [name: string]: SchemaObject | SchemaObjectByName }
-
-export const v7r = <Data extends any = any>(data: Data, schema: SchemaObject | SchemaObjectByName, context?: string|string[]): Promise<Error[]> => {
+export const v7r = <Data extends any = any>(data: Data, schema: v7rSchema, context?: string|string[]): Promise<Error[]> => {
   if(typeof schema !== "object") {
     return Promise.resolve([ new Error(i18nValidator.schemaMustBeAnObject, ErrorType.INCOMPATIBLE, context) ])
   }
@@ -38,7 +36,7 @@ export const v7r = <Data extends any = any>(data: Data, schema: SchemaObject | S
       }
     }
 
-    return v7r(data[schemaKey], (schema as SchemaObjectByName)[schemaKey], childContext).then(errors => {
+    return v7r(data[schemaKey], (schema as v7rSchemaObjectByName)[schemaKey], childContext).then(errors => {
       list.push.apply(list, errors)
       return list
     })
