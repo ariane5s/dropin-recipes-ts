@@ -1,5 +1,5 @@
-import { i18nArticle } from "../../Context/Names/i18nArticle"
-import { Language } from "../../Context/Language"
+import { i18nArticle } from "../../Context/Code/i18nArticle"
+import { Language } from "../../Context/Fields/Language"
 import { NameTextOrQuery, NameByLanguage } from "../Names/Name"
 
 export interface i18nOptions<Vars = { [name: string]: string }> {

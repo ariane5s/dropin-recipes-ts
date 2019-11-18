@@ -1,4 +1,4 @@
-import { Language } from "../Context/Language"
+import { Language } from "../Context/Fields/Language"
 
 export class i18nSettings {
   private static language: Language = i18nSettings.getDefaultLanguage()

@@ -1,4 +1,4 @@
-import { Language } from "../../Context/Language"
+import { Language } from "../../Context/Fields/Language"
 
 type Without<A, B> = {
   [R in Exclude<keyof A, keyof B>]?: never

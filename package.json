@@ -1,9 +1,9 @@
 {
   "name": "dropin-recipes",
-  "version": "2.0.0",
+  "version": "1.7.0",
   "license": "Apache-2.0",
-  "author": "Nazim Lachter <nazim@blueforest.fr>",
-  "repository": "git@github.com:theblueforest/DROPinRecipesTypeScript.git",
+  "author": "Nazim Lachter <nazim@blueforest.cc>",
+  "repository": "git@github.com:theblueforest/dropin-recipes-ts.git",
   "main": "./lib/index.js",
   "browser": {
     "node-fetch": false

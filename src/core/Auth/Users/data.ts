@@ -1,4 +1,6 @@
 
+export type UserId = string
+
 export interface UserDataUsername {
   firstname: string
   lastname: string

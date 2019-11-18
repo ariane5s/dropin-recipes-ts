@@ -1,7 +1,16 @@
-import { FieldDefaultOption, FieldIdOption, Field, FieldType } from "../../.old/Formats/Field"
+import { ModelField_RequiredOption, ModelField_MinMaxOptions, ModelField, ModelField_IdOption } from "../Models/Field"
+import { FieldType } from "../../Context/Types/FieldType"
+import { l4rContext } from "../Models/l4r"
+import { Error } from "../Models/Error"
 
-export type CollectionFieldOptions = FieldDefaultOption<boolean> & FieldIdOption
+export type CollectionFieldOptions = ModelField_RequiredOption & ModelField_MinMaxOptions & ModelField_IdOption & {
+  volume: string
+}
 
-export interface CollectionField extends Field<CollectionFieldOptions> {
-  type: FieldType.COLLECTION
+export type CollectionFieldSchema = ModelField<FieldType.COLLECTION, CollectionFieldOptions>
+
+export type CollectionField = {}
+
+export const CollectionFieldValidator = (data: CollectionField | any, context?: l4rContext): Promise<Error[]> => {
+  return Promise.resolve([])
 }

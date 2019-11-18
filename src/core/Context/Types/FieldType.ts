@@ -6,8 +6,10 @@ export enum FieldType {
   COLOR = "color",
   DATE = "date",
   EMAIL = "email",
+  ENVIRONMENT = "environment",
   FILE = "file",
   IMAGE = "image",
+  LANGUAGE = "language",
   LIST = "list",
   LOCATION = "location",
   MEASUREMENT = "measurement",
@@ -23,5 +25,4 @@ export enum FieldType {
   TIME = "time",
   URL = "url",
   VIDEO = "video",
-  VOLUME = "volume",
 }

@@ -14,8 +14,16 @@ export const i18nValidator = i18nData({
     en: "Data must be a string"
   },
 
-  dataIsNotAnObject: {
-    en: "Data is not an object",
+  dataMustBeANumber: {
+    en: "Data must be a number"
+  },
+
+  dataMustBeAnObject: {
+    en: "Data must be an object"
+  },
+
+  dataMustBeBoolean: {
+    en: "Data must be boolean"
   },
 
   noDataFoundForKey: (key: string): i18nData => ({
@@ -24,6 +32,17 @@ export const i18nValidator = i18nData({
 
   unexpectedKey: (key: string): i18nData => ({
     en: [ "Unexpected key \"", key, "\"" ],
+  }),
+
+  keysCountMismatch: (current: number, expected: number): i18nData => ({
+    en: [
+      "The object contains ", current, " key", current === 1 ? "" : "s",
+      " while ", expected, " ", expected === 1 ? "was" : "were", " expected",
+    ],
+  }),
+
+  dataShouldBe: (expected: string): i18nData => ({
+    en: [ "Data expected to be \"", expected, "\"" ],
   }),
 
 })

@@ -1,11 +1,11 @@
 import { ModelEntity } from "../../Formats/Models/Entity"
 import { CompanyId, CompanyData, v7rCompany } from "./data"
-import { Name } from "../../Formats/Names/Name"
+import { NameField } from "../../Formats/Fields"
 import { ModelResponse } from "../../Formats/Models/Response"
 import { CompaniesAPI } from "./api"
 
 export class Company extends ModelEntity<CompanyId, CompanyData> implements CompanyData {
-  name: Name
+  name: NameField
   administrators: string[]
 
   constructor(data: ModelResponse<CompanyId, CompanyData>) {
@@ -27,18 +27,38 @@ export class Company extends ModelEntity<CompanyId, CompanyData> implements Comp
   }
 
   save() {
-    if(typeof this.id === "undefined") {
-      return CompaniesAPI.create(this)
+    if(typeof this.id !== "undefined") {
+      return CompaniesAPI.update(this)
     }
-    return CompaniesAPI.update(this)
+    return CompaniesAPI.create(this)
   }
 
-  archive() {
-    return CompaniesAPI.archive(this.id)
+  archive(): Promise<any> {
+    if(typeof this.id !== "undefined") {
+      return CompaniesAPI.archive(this.id)
+    }
+    this.archivedAt = new Date()
+    return Promise.resolve()
   }
 
-  unarchive() {}
+  unarchive(): Promise<any> {
+    if(typeof this.id !== "undefined") {
+      return CompaniesAPI.unarchive(this.id)
+    }
+    if(typeof this.archivedAt !== "undefined") {
+      delete this.archivedAt
+    }
+    return Promise.resolve()
+  }
 
-  delete() {}
+  delete(): Promise<any> {
+    if(typeof this.id !== "undefined") {
+      return CompaniesAPI.deleteById(this.id).then(result => {
+        delete this.id
+        return result
+      })
+    }
+    return Promise.resolve()
+  }
 
 }

@@ -1,5 +1,5 @@
 import { i18nData } from "../core/Formats/Models/i18n"
-import { Environment } from "../core/Context/Environment"
+import { Environment } from "../core/Context/Fields/Environment"
 import { i18nEnvironments } from "./Environments"
 
 export const i18nLogger = i18nData({

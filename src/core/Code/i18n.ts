@@ -1,10 +1,17 @@
-import { i18nData, i18nArticle } from "../Formats/Models/i18n"
-import { i18nOptions, i18nQuery } from "../Formats/Queries/i18n"
-import { NameTextOrQuery, NameByLanguage, NameByNumber, NameArticle } from "../Formats/Names/Name"
-import { Language } from "../Context/Language"
+import { i18nData, i18nOptions } from "../Formats/Models/i18n"
+import { i18nQuery } from "../Formats/Queries/i18n"
+import { Language } from "../Context/Fields/Language"
 import { i18nSettings } from "./i18nSettings"
+import { i18nArticle } from "../Context/Code/i18nArticle"
+import { NameArticle } from "../Context/Fields/NameArticle"
+import { NameField_ByLanguage, NameField_i18n, NameField_ByNumber } from "../Formats/Fields"
 
 export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
+
+  // NUMBER
+  if(typeof data === "number") {
+    return data.toString()
+  }
 
   // STRING
   if(typeof data === "string") {
@@ -46,23 +53,23 @@ export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
   }
 
   // LANGUAGE NAME
-  const dataByLanguage = data as NameByLanguage<NameTextOrQuery>
+  const dataByLanguage = data as NameField_ByLanguage<NameField_i18n>
   let currentLanguage: Language | null = null
-  let languageDepth: NameTextOrQuery | null = null
+  let languageDepth: NameField_i18n | null = null
 
   // Options language
   if(typeof options.language !== "undefined" && typeof dataByLanguage[options.language] !== "undefined") {
     currentLanguage = options.language
-    languageDepth = dataByLanguage[currentLanguage] as NameTextOrQuery
+    languageDepth = dataByLanguage[currentLanguage] as NameField_i18n
 
   // Global Name text
   } else if(typeof dataByLanguage["*"] !== "undefined") {
-    languageDepth = dataByLanguage["*"] as NameTextOrQuery
+    languageDepth = dataByLanguage["*"] as NameField_i18n
 
   // Default language
   } else if(typeof dataByLanguage[i18nSettings.getCurrentLanguage()] !== "undefined") {
     currentLanguage = i18nSettings.getCurrentLanguage()
-    languageDepth = dataByLanguage[currentLanguage] as NameTextOrQuery
+    languageDepth = dataByLanguage[currentLanguage] as NameField_i18n
   }
 
   // NO LANGUAGE DATA FOUND
@@ -86,7 +93,7 @@ export const i18n = (data: i18nData, options: i18nOptions = {}): string => {
   }
 
   // NUMBER NAME
-  let secondDepth = languageDepth as NameByNumber<NameTextOrQuery>
+  let secondDepth = languageDepth as NameField_ByNumber<NameField_i18n>
   let output: string = ""
 
   if(typeof options.count === "undefined") {
