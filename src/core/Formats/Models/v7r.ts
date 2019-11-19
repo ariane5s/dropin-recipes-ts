@@ -8,6 +8,6 @@ type FieldObjects = Fields.AudioFieldSchema | Fields.BooleanFieldSchema | Fields
   | Fields.QuantityFieldSchema | Fields.RecurrenceFieldSchema | Fields.TextFieldSchema | Fields.TimeFieldSchema
   | Fields.URLFieldSchema | Fields.VideoFieldSchema
 
-export type v7rSchemaObjectByName = { [name: string]: FieldObjects | v7rSchemaObjectByName }
+export type v7rSchemaObjectByName = { [name: string]: v7rSchemaObjectByName | FieldObjects }
 
-export type v7rSchema = FieldObjects | v7rSchemaObjectByName
+export type v7rSchema = v7rSchemaObjectByName | FieldObjects

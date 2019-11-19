@@ -1,9 +1,9 @@
 import { SchemaObject } from "../Objects/Schema"
-import { Name } from "../../Formats/Names/Name"
+import { NameField } from "../Fields"
 import { FieldType } from "../../Context/Types/FieldType"
 
 export type ModelField<Type extends FieldType, Options> = SchemaObject<Type, Options> & {
-  name: Name
+  name: NameField
   filters?: boolean | string[]
 }
 

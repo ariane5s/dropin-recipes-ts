@@ -9,20 +9,14 @@
     "node-fetch": false
   },
   "scripts": {
-    "start": "tsc -w -p .",
-    "build": "rm -rf lib && tsc -p .",
-    "test": "echo SKIPPED",
-    "preversion": "./bin/npm-pre-version.sh",
-    "version:major": "npm version major -m 'Major upgrade from ${npm_package_version} to %s'",
-    "version:minor": "npm version minor -m 'Minor upgrade from ${npm_package_version} to %s'",
-    "version:patch": "npm version patch -m 'Patch upgrade from ${npm_package_version} to %s'",
-    "postversion": "git push --follow-tags && echo '=> You can now run `npm publish`'"
-  },
-  "devDependencies": {
-    "@types/node-fetch": "^2.3.7",
-    "typescript": "^3.5.2"
+    "start": "kiwi start",
+    "build": "kiwi build",
+    "test": "kiwi test"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.3.7"
   }
 }

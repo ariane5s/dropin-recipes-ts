@@ -1,5 +1,5 @@
 import { i18nData } from "../core/Formats/Models/i18n"
-import { NameArticle } from "../core/Formats/Names/Name"
+import { NameArticle } from "../core/Context/Fields/NameArticle"
 
 export const i18nUsers = i18nData({
 
